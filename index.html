@@ -1,14 +1,157 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dami Traveling</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dami Traveling | Explore Sri Lanka</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, sans-serif;
+  background: #071b19;
+  color: white;
+}
+header {
+  padding: 22px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  background: #092622;
+}
+.logo { font-size: 25px; font-weight: bold; color: #64e6b0; }
+nav { display: flex; gap: 20px; flex-wrap: wrap; }
+nav a { color: white; text-decoration: none; font-size: 14px; }
+nav a:hover { color: #64e6b0; }
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  padding: 75px 8%;
+  background:
+    linear-gradient(90deg, rgba(3,20,17,.88), rgba(3,20,17,.2)),
+    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85')
+    center/cover;
+}
+.hero-content { max-width: 650px; }
+.tag {
+  color: #64e6b0;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-weight: bold;
+}
+h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.1; margin: 22px 0; }
+h1 span { color: #64e6b0; }
+.hero p { font-size: 17px; line-height: 1.8; color: #e1e9e5; }
+.btn {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 15px 25px;
+  border-radius: 6px;
+  background: #64e6b0;
+  color: #08231c;
+  text-decoration: none;
+  font-weight: bold;
+}
+section { padding: 70px 8%; }
+.section-title { font-size: 34px; margin-bottom: 15px; }
+.intro { color: #b8cbc4; line-height: 1.8; margin-bottom: 30px; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+.card {
+  overflow: hidden;
+  background: #10302a;
+  border-radius: 12px;
+  border: 1px solid #24463d;
+}
+.card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.card h3 { padding: 18px 18px 8px; }
+.card p { padding: 0 18px 22px; color: #b8cbc4; line-height: 1.7; }
+.about { background: #0b2520; }
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: #b8cbc4;
+  background: #061512;
+  line-height: 1.8;
+}
+@media(max-width:600px) {
+  header { padding: 20px 5%; }
+  nav { gap: 13px; }
+  .hero { min-height: 500px; padding: 55px 6%; }
+  section { padding: 55px 6%; }
+}
+</style>
 </head>
 <body>
-  <h1>Welcome to Dami Traveling</h1>
-  <p>Explore the beauty of Sri Lanka!</p>
-  <a href="videos.html">Watch My Travel Videos</a>
+
+<header>
+  <div class="logo">🌿 DAMI TRAVELING</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#about">About</a>
+    <a href="videos.html">Videos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="tag">TRAVEL • EXPLORE • DISCOVER</div>
+      <h1>Discover the Beauty of <span>Sri Lanka</span></h1>
+      <p>
+        Join me on an unforgettable journey through beautiful
+        mountains, hidden waterfalls, peaceful villages and
+        amazing places across our island.
+      </p>
+      <a class="btn" href="videos.html">▶ Explore My Videos</a>
+    </div>
+  </section>
+
+  <section id="destinations">
+    <h2 class="section-title">Explore Nature 🌿</h2>
+    <p class="intro">Discover the natural beauty and hidden treasures of Sri Lanka.</p>
+    <div class="cards">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Beautiful mountains">
+        <h3>⛰️ Beautiful Mountains</h3>
+        <p>Explore breathtaking mountain views and green landscapes.</p>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80" alt="Waterfall in nature">
+        <h3>💧 Waterfalls</h3>
+        <p>Discover peaceful waterfalls and refreshing natural beauty.</p>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="Green countryside">
+        <h3>🌳 Village Life</h3>
+        <p>Enjoy quiet village roads, green fields and local adventures.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="section-title">Welcome to Dami Traveling!</h2>
+    <p class="intro">
+      This is my little corner for sharing travel adventures,
+      beautiful places and unforgettable experiences.
+      Come along and explore Sri Lanka with me!
+    </p>
+    <a class="btn" href="videos.html">Watch Travel Videos →</a>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 Dami Traveling | Explore the beauty of Sri Lanka 🇱🇰</p>
+</footer>
+
 </body>
 </html>
