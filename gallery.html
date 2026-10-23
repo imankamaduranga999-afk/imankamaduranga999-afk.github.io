@@ -3,170 +3,165 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gallery | Dami Traveling</title>
-<meta name="description" content="Beautiful travel photography from Sri Lanka with Dami Traveling.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery | DAMI TRAVELING</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#06100e;--panel:#0c1b17;--green:#c7ff45;--mint:#51e6b5;--muted:#b8c8c0}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:white;line-height:1.6}
+:root{--bg:#07110e;--panel:#102019;--green:#b6f36a;--white:#f5f8f4;--muted:#aab8ae}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--white);line-height:1.6}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(1200px,92%);margin:auto}
-header{position:sticky;top:0;z-index:5;background:#06100ef5;border-bottom:1px solid #234138}
+.container{width:min(1120px,92%);margin:auto}
+header{background:#09140f;border-bottom:1px solid #29392d;position:sticky;top:0;z-index:5}
 .navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:14px 0}
-.logo{font-size:23px;font-weight:bold}.logo span{color:var(--mint)}
-nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{font-size:14px;color:#e6eee9}
+.logo{font-size:22px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--green)}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{font-size:14px;color:#e1e9e2}
 nav a:hover,nav a.active{color:var(--green)}
-.hero{text-align:center;padding:65px 15px;background:radial-gradient(ellipse at top,#174637,#06100e 72%)}
-.kicker{color:var(--green);font-size:12px;font-weight:bold;letter-spacing:3px}
-h1{font-size:clamp(38px,6vw,62px);margin:12px 0}
-.hero p{color:var(--muted);max-width:650px;margin:auto}
-main{padding:38px 0 70px}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:25px}
-.toolbar h2{font-size:28px}
-.filters{display:flex;gap:8px;flex-wrap:wrap}
-.filters button{background:#0c1b17;border:1px solid #315447;color:white;padding:9px 15px;border-radius:25px;cursor:pointer}
-.filters button.active,.filters button:hover{background:var(--green);color:#07110b;border-color:var(--green)}
-.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-.photo{position:relative;border:1px solid #25483b;border-radius:15px;overflow:hidden;cursor:pointer;background:var(--panel);min-height:190px}
-.photo img{display:block;width:100%;height:250px;object-fit:cover;transition:transform .35s}
+.hero{padding:70px 0 45px;background:linear-gradient(120deg,#193524,#07110e)}
+.tag{color:var(--green);font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase}
+h1{font-size:clamp(36px,6vw,60px);line-height:1.15;margin:12px 0}
+.hero p{color:var(--muted);max-width:700px}
+main{padding:35px 0 75px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{background:var(--panel);border:1px solid #344839;color:white;padding:10px 17px;border-radius:7px;cursor:pointer}
+.filters button.active,.filters button:hover{background:var(--green);color:#102015;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.photo{position:relative;overflow:hidden;border-radius:12px;border:1px solid #293b2e;background:var(--panel);cursor:pointer;min-height:190px}
+.photo img{width:100%;height:245px;object-fit:cover;display:block;transition:transform .3s}
 .photo:hover img{transform:scale(1.06)}
-.photo-info{position:absolute;inset:auto 0 0;padding:30px 16px 15px;background:linear-gradient(transparent,#020907ed)}
-.photo-info h3{font-size:18px}
-.photo-info p{font-size:12px;color:#d1ded7}
+.caption{position:absolute;bottom:0;left:0;right:0;padding:35px 15px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-weight:bold}
 .photo[hidden]{display:none}
-.lightbox{display:none;position:fixed;inset:0;z-index:20;background:#000e;align-items:center;justify-content:center;padding:20px}
+.note{color:var(--muted);margin-bottom:25px}
+footer{border-top:1px solid #29392d;padding:25px 0;color:var(--muted);font-size:13px}
+.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:20;display:none;align-items:center;justify-content:center;padding:25px}
 .lightbox.open{display:flex}
-.lightbox-inner{width:min(1000px,100%);position:relative;text-align:center}
-.lightbox img{max-height:75vh;width:100%;object-fit:contain;border-radius:10px}
-.lightbox p{padding:10px;color:white}
-.close{position:absolute;right:0;bottom:calc(100% + 8px);width:40px;height:40px;border:0;border-radius:50%;font-size:26px;cursor:pointer}
-footer{border-top:1px solid #234138;padding:25px 0;color:var(--muted);font-size:13px}
-.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-footer a{color:var(--mint)}
-@media(max-width:800px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.photo img{height:220px}}
-@media(max-width:520px){.navbar{justify-content:center}.logo{width:100%;text-align:center}nav{justify-content:center;gap:12px}.gallery{grid-template-columns:1fr}.photo img{height:250px}.toolbar h2{font-size:24px}.hero{padding:48px 12px}}
+.lightbox img{max-width:95%;max-height:82vh;object-fit:contain}
+.close{position:absolute;right:25px;top:15px;font-size:36px;color:white;background:none;border:0;cursor:pointer}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.navbar{justify-content:center}nav{justify-content:center;gap:12px}.grid{grid-template-columns:1fr}.photo img{height:260px}.hero{padding:50px 0 35px}}
 </style>
 </head>
 <body>
 <header>
-  <div class="wrap navbar">
-    <a class="logo" href="index.html">⛰ Dami <span>Traveling</span></a>
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="destinations.html">Destinations</a>
-      <a href="videos.html">Videos</a>
-      <a class="active" href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
+<div class="container navbar">
+<a class="logo" href="index.html">DAMI <span>TRAVELING</span></a>
+<nav>
+<a href="index.html">Home</a>
+<a href="videos.html">Videos</a>
+<a href="destinations.html">Destinations</a>
+<a class="active" href="gallery.html">Gallery</a>
+<a href="index.html#about">About</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+</div>
 </header>
 
 <section class="hero">
-  <span class="kicker">MOMENTS • MEMORIES • SRI LANKA</span>
-  <h1>Travel Photo Gallery</h1>
-  <p>Discover beautiful landscapes, peaceful nature, mountain views and unforgettable adventures around Sri Lanka.</p>
+<div class="container">
+<div class="tag">Memories from the journey</div>
+<h1>Travel <span style="color:#b6f36a">Gallery</span></h1>
+<p>ශ්‍රී ලංකාවේ සුන්දරත්වය, කඳු, දිය ඇලි, වෙරළ සහ සංචාරක මතකයන් එකම තැනකින් බලන්න.</p>
+</div>
 </section>
 
-<main class="wrap">
-  <div class="toolbar">
-    <h2>Captured Moments 📸</h2>
-    <div class="filters" aria-label="Filter photos">
-      <button class="active" data-filter="all">All Photos</button>
-      <button data-filter="nature">Nature</button>
-      <button data-filter="mountains">Mountains</button>
-      <button data-filter="beach">Beaches</button>
-    </div>
-  </div>
+<main>
+<div class="container">
+<p class="note">පින්තූරයක් click කළාම ඒක ලොකුවට බලන්න පුළුවන්. පහළ buttons වලින් photo වර්ග තෝරන්න.</p>
 
-  <div class="gallery" id="gallery">
-    <article class="photo" data-category="mountains" data-title="Green Mountain Escape">
-      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Beautiful mountain peaks" loading="lazy">
-      <div class="photo-info"><h3>Green Mountain Escape</h3><p>Mountain Adventures</p></div>
-    </article>
-    <article class="photo" data-category="nature" data-title="Forest Dreams">
-      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=85" alt="Sunlight through a green forest" loading="lazy">
-      <div class="photo-info"><h3>Forest Dreams</h3><p>Nature and Wildlife</p></div>
-    </article>
-    <article class="photo" data-category="beach" data-title="Tropical Blue">
-      <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=85" alt="Tropical beach and blue sea" loading="lazy">
-      <div class="photo-info"><h3>Tropical Blue</h3><p>Beach Adventures</p></div>
-    </article>
-    <article class="photo" data-category="nature" data-title="Waterfall Wonder">
-      <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=900&q=85" alt="Waterfall in a lush green forest" loading="lazy">
-      <div class="photo-info"><h3>Waterfall Wonder</h3><p>Hidden Nature</p></div>
-    </article>
-    <article class="photo" data-category="mountains" data-title="Misty Highlands">
-      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85" alt="Misty hills and lake at sunrise" loading="lazy">
-      <div class="photo-info"><h3>Misty Highlands</h3><p>Hill Country Views</p></div>
-    </article>
-    <article class="photo" data-category="nature" data-title="Wild Green Trails">
-      <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=900&q=85" alt="Green woodland trail" loading="lazy">
-      <div class="photo-info"><h3>Wild Green Trails</h3><p>Into the Wild</p></div>
-    </article>
-    <article class="photo" data-category="beach" data-title="Ocean Paradise">
-      <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=85" alt="Ocean waves rolling toward the beach" loading="lazy">
-      <div class="photo-info"><h3>Ocean Paradise</h3><p>Coastal Journeys</p></div>
-    </article>
-    <article class="photo" data-category="mountains" data-title="Mountain Road">
-      <img src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=900&q=85" alt="Winding road among mountains" loading="lazy">
-      <div class="photo-info"><h3>Mountain Road</h3><p>Road Trip Stories</p></div>
-    </article>
-    <article class="photo" data-category="nature" data-title="Peaceful Green Valley">
-      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Green valley in beautiful natural scenery" loading="lazy">
-      <div class="photo-info"><h3>Peaceful Green Valley</h3><p>Explore More</p></div>
-    </article>
-  </div>
+<div class="filters">
+<button class="active" data-filter="all">All Photos</button>
+<button data-filter="nature">Nature</button>
+<button data-filter="mountains">Mountains</button>
+<button data-filter="beach">Beaches</button>
+</div>
+
+<div class="grid" id="gallery">
+<div class="photo" data-category="nature" tabindex="0" role="button" aria-label="View green forest photo">
+<img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85" alt="Green natural landscape" loading="lazy">
+<div class="caption">Nature & Wildlife</div>
+</div>
+<div class="photo" data-category="mountains" tabindex="0" role="button" aria-label="View mountain photo">
+<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Mountain peaks" loading="lazy">
+<div class="caption">Mountain Adventures</div>
+</div>
+<div class="photo" data-category="beach" tabindex="0" role="button" aria-label="View beach photo">
+<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=85" alt="Ocean and beach" loading="lazy">
+<div class="caption">Beautiful Beaches</div>
+</div>
+<div class="photo" data-category="nature" tabindex="0" role="button" aria-label="View waterfall photo">
+<img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=900&q=85" alt="Waterfall in a green forest" loading="lazy">
+<div class="caption">Waterfall Wonders</div>
+</div>
+<div class="photo" data-category="mountains" tabindex="0" role="button" aria-label="View countryside photo">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Countryside landscape" loading="lazy">
+<div class="caption">Green Countryside</div>
+</div>
+<div class="photo" data-category="beach" tabindex="0" role="button" aria-label="View sea photo">
+<img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=85" alt="Tropical beach" loading="lazy">
+<div class="caption">Ocean Memories</div>
+</div>
+</div>
+</div>
 </main>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <div class="lightbox-inner">
-    <button class="close" id="close" aria-label="Close photo">×</button>
-    <img id="largePhoto" src="" alt="">
-    <p id="photoCaption"></p>
-  </div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Large photo viewer">
+<button class="close" id="close" aria-label="Close photo viewer">&times;</button>
+<img id="largePhoto" src="" alt="Enlarged travel photo">
 </div>
 
 <footer>
-  <div class="wrap footer-inner">
-    <p>© 2026 Dami Traveling · Explore Sri Lanka 🇱🇰</p>
-    <p><a href="https://youtube.com/@damitha-w6f" target="_blank" rel="noopener">YouTube</a> · <a href="index.html">Back to Home ↑</a></p>
-  </div>
+<div class="container footer">
+<span>© 2026 DAMI TRAVELING</span>
+<span>Made with ❤️ for travel lovers</span>
+</div>
 </footer>
 
 <script>
-const cards=[...document.querySelectorAll('.photo')];
-document.querySelectorAll('[data-filter]').forEach(button=>{
-  button.addEventListener('click',()=>{
-    document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));
-    button.classList.add('active');
-    const filter=button.dataset.filter;
-    cards.forEach(card=>{
-      card.hidden=filter!=='all'&&card.dataset.category!==filter;
-    });
-  });
-});
+const buttons=document.querySelectorAll('.filters button');
+const photos=document.querySelectorAll('.photo');
 const lightbox=document.getElementById('lightbox');
 const largePhoto=document.getElementById('largePhoto');
-const caption=document.getElementById('photoCaption');
-cards.forEach(card=>{
-  card.addEventListener('click',()=>{
-    const img=card.querySelector('img');
-    largePhoto.src=img.src;
-    largePhoto.alt=img.alt;
-    caption.textContent=card.dataset.title;
-    lightbox.classList.add('open');
-  });
+
+buttons.forEach(button=>{
+button.addEventListener('click',()=>{
+buttons.forEach(b=>b.classList.toggle('active',b===button));
+const filter=button.dataset.filter;
+photos.forEach(photo=>{
+photo.hidden=filter!=='all'&&photo.dataset.category!==filter;
 });
-function closeLightbox(){
-  lightbox.classList.remove('open');
-  largePhoto.src='';
+});
+});
+
+function openPhoto(photo){
+const img=photo.querySelector('img');
+largePhoto.src=img.src;
+largePhoto.alt=img.alt;
+lightbox.classList.add('open');
+document.getElementById('close').focus();
 }
-document.getElementById('close').addEventListener('click',closeLightbox);
-lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+photos.forEach(photo=>{
+photo.addEventListener('click',()=>openPhoto(photo));
+photo.addEventListener('keydown',event=>{
+if(event.key==='Enter'||event.key===' '){
+event.preventDefault();
+openPhoto(photo);
+}
+});
+});
+
+function closePhoto(){
+lightbox.classList.remove('open');
+largePhoto.src='';
+}
+document.getElementById('close').addEventListener('click',closePhoto);
+lightbox.addEventListener('click',event=>{
+if(event.target===lightbox)closePhoto();
+});
+document.addEventListener('keydown',event=>{
+if(event.key==='Escape')closePhoto();
+});
 </script>
 </body>
 </html>
