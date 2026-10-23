@@ -2,673 +2,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07130f">
-  <meta name="description" content="Watch travel vlogs, beautiful destinations, waterfalls, mountains and village adventures with Dami Traveling.">
-  <title>Videos | Dami Traveling</title>
-
-  <style>
-    :root {
-      --bg: #07130f;
-      --panel: #10231b;
-      --green: #b8f34b;
-      --white: #f5f7f2;
-      --muted: #a6b5aa;
-      --border: rgba(255,255,255,.1);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(1160px, 92%);
-      margin: auto;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(7,19,15,.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: 900;
-      letter-spacing: -.8px;
-      white-space: nowrap;
-    }
-
-    .logo span { color: var(--green); }
-
-    nav {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    nav a {
-      color: var(--muted);
-      font-size: 14px;
-      transition: color .2s;
-    }
-
-    nav a:hover, nav a.active { color: var(--green); }
-
-    .hero {
-      padding: 76px 0 58px;
-      background:
-        radial-gradient(ellipse at 80% 10%, rgba(184,243,75,.12), transparent 45%),
-        linear-gradient(180deg, #0b1b13, var(--bg));
-    }
-
-    .eyebrow {
-      display: inline-block;
-      color: var(--green);
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-size: clamp(40px, 7vw, 76px);
-      line-height: 1.04;
-      letter-spacing: -2px;
-      max-width: 760px;
-    }
-
-    h1 span { color: var(--green); }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 580px;
-      margin-top: 20px;
-      font-size: 16px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 14px;
-      transition: transform .2s, background .2s;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-
-    .btn-primary {
-      background: var(--green);
-      color: #14210c;
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
-    }
-
-    .section { padding: 46px 0 72px; }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      flex-wrap: wrap;
-      gap: 18px;
-      margin-bottom: 24px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(26px, 4vw, 36px);
-      line-height: 1.2;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 7px;
-    }
-
-    .search-wrap { margin-bottom: 18px; }
-
-    .search {
-      width: 100%;
-      max-width: 460px;
-      padding: 14px 16px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      color: var(--white);
-      font-size: 15px;
-      outline: none;
-    }
-
-    .search:focus { border-color: var(--green); }
-
-    .filters {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .filter {
-      cursor: pointer;
-      border: 1px solid var(--border);
-      background: #102019;
-      color: var(--muted);
-      padding: 9px 16px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .filter:hover, .filter.active {
-      background: var(--green);
-      border-color: var(--green);
-      color: #14210c;
-    }
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 25px;
-    }
-
-    .video-card {
-      min-width: 0;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      border-radius: 15px;
-      transition: transform .25s, border-color .25s;
-    }
-
-    .video-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(184,243,75,.55);
-    }
-
-    .thumbnail {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      background: #17271e;
-      overflow: hidden;
-    }
-
-    .thumbnail img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform .4s;
-    }
-
-    .video-card:hover .thumbnail img { transform: scale(1.05); }
-
-    .play {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      background: rgba(0,0,0,.1);
-    }
-
-    .play span {
-      display: grid;
-      place-items: center;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: var(--green);
-      color: #102019;
-      font-size: 23px;
-      padding-left: 4px;
-      box-shadow: 0 4px 25px rgba(0,0,0,.35);
-    }
-
-    .video-info { padding: 18px; }
-
-    .tag {
-      display: inline-block;
-      color: var(--green);
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 9px;
-    }
-
-    .video-info h3 {
-      font-size: 18px;
-      line-height: 1.4;
-      margin-bottom: 8px;
-    }
-
-    .video-info p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 17px;
-    }
-
-    .watch {
-      display: inline-block;
-      color: var(--green);
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .watch:hover { text-decoration: underline; }
-
-    .empty {
-      display: none;
-      padding: 40px 15px;
-      text-align: center;
-      color: var(--muted);
-      grid-column: 1 / -1;
-    }
-
-    .cta {
-      padding: 38px;
-      border-radius: 18px;
-      background: linear-gradient(120deg, #193622, #10231b);
-      border: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
-    .cta h2 { font-size: 27px; }
-
-    .cta p {
-      color: var(--muted);
-      margin-top: 7px;
-      font-size: 14px;
-    }
-
-    footer {
-      padding: 28px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .footer-inner strong { color: var(--green); }
-
-    @media (max-width: 850px) {
-      .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .navbar { padding: 15px 0; align-items: flex-start; flex-direction: column; }
-      nav { gap: 13px; }
-    }
-
-    @media (max-width: 560px) {
-      .video-grid { grid-template-columns: 1fr; }
-      .hero { padding: 55px 0 38px; }
-      .section { padding: 35px 0 50px; }
-      .cta { padding: 24px; }
-      nav a { font-size: 12px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Videos | DAMI TRAVELING</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#07110e;--panel:#102019;--green:#b6f36a;--white:#f5f8f4;--muted:#aab8ae}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--white);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,92%);margin:auto}
+header{background:#09140f;border-bottom:1px solid #29392d;position:sticky;top:0;z-index:5}
+.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:14px 0}
+.logo{font-size:22px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--green)}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{font-size:14px;color:#e1e9e2}
+nav a:hover,nav a.active{color:var(--green)}
+.hero{padding:75px 0 45px;background:linear-gradient(135deg,#14291d,#07110e)}
+.tag{color:var(--green);font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase}
+h1{font-size:clamp(36px,6vw,60px);line-height:1.15;margin:12px 0}
+.hero p,.intro{color:var(--muted)}
+main section{padding:38px 0 70px}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 30px}
+input{flex:1;min-width:200px;background:#102019;border:1px solid #344839;border-radius:8px;padding:13px;color:white;font-size:15px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{padding:10px 15px;border:1px solid #344839;background:#102019;color:white;border-radius:7px;cursor:pointer}
+.filters button.active,.filters button:hover{background:var(--green);color:#102015;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{overflow:hidden;border:1px solid #293b2e;background:var(--panel);border-radius:13px}
+.video{width:100%;aspect-ratio:16/9;display:block;border:0;background:#000}
+.content{padding:20px}
+.content h2{font-size:21px;margin-bottom:7px}
+.content p{color:var(--muted);margin-bottom:14px}
+.link{color:var(--green);font-weight:bold}
+.empty{display:none;color:var(--muted);padding:25px 0}
+footer{border-top:1px solid #29392d;padding:25px 0;color:var(--muted);font-size:13px}
+.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:700px){.navbar{justify-content:center}nav{justify-content:center;gap:12px}.grid{grid-template-columns:1fr}.hero{padding:55px 0 35px}}
+</style>
 </head>
-
 <body>
-
 <header>
-  <div class="container navbar">
-    <a class="logo" href="index.html">DAMI <span>TRAVELING</span></a>
-
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="videos.html" class="active">Videos</a>
-      <a href="destinations.html">Destinations</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
+<div class="container navbar">
+<a class="logo" href="index.html">DAMI <span>TRAVELING</span></a>
+<nav>
+<a href="index.html">Home</a>
+<a class="active" href="videos.html">Videos</a>
+<a href="destinations.html">Destinations</a>
+<a href="gallery.html">Gallery</a>
+<a href="index.html#about">About</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+</div>
 </header>
 
+<div class="hero">
+<div class="container">
+<div class="tag">Travel • Explore • Discover</div>
+<h1>My Travel <span style="color:#b6f36a">Videos</span></h1>
+<p>ලස්සන ගමන් අත්දැකීම්, කඳු, ගම්මාන, ඇළ දොළ සහ ශ්‍රී ලංකාවේ සුන්දරත්වය මාත් එක්ක බලන්න!</p>
+</div>
+</div>
+
 <main>
-  <section class="hero">
-    <div class="container">
-      <span class="eyebrow">Explore Sri Lanka with us</span>
-      <h1>Every Journey Has<br>A <span>Story.</span></h1>
+<section>
+<div class="container">
+<p class="intro">ඔයා කැමති video එකක් තෝරලා බලන්න. Search box එකෙන් video හොයන්නත් පුළුවන්.</p>
+<div class="toolbar">
+<input id="search" type="search" placeholder="Search travel videos..." aria-label="Search videos">
+<div class="filters">
+<button class="active" data-filter="all">All Videos</button>
+<button data-filter="nature">Nature</button>
+<button data-filter="travel">Travel</button>
+</div>
+</div>
 
-      <p>
-        Discover beautiful villages, misty mountains, waterfalls and
-        unforgettable adventures through our travel videos.
-        Let's explore the beauty of Sri Lanka together!
-      </p>
+<div class="grid" id="videoGrid">
+<article class="card" data-category="travel">
+<iframe class="video" src="https://www.youtube-nocookie.com/embed/QiUTa15-gpk" title="Dami Traveling video 1" loading="lazy" allowfullscreen></iframe>
+<div class="content">
+<h2>Travel Adventure</h2>
+<p>අලුත් ගමන් අත්දැකීමක් මාත් එක්ක විඳින්න.</p>
+<a class="link" href="https://www.youtube.com/watch?v=QiUTa15-gpk" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+</div>
+</article>
 
-      <div class="hero-actions">
-        <a class="btn btn-primary"
-           href="#all-videos">▶ Explore Videos</a>
+<article class="card" data-category="nature">
+<iframe class="video" src="https://www.youtube-nocookie.com/embed/O4N68p5Ew6w?start=191" title="Dami Traveling video 2" loading="lazy" allowfullscreen></iframe>
+<div class="content">
+<h2>Beautiful Sri Lanka</h2>
+<p>ශ්‍රී ලංකාවේ සුන්දර පරිසරය සහ සංචාරක මතකයන්.</p>
+<a class="link" href="https://www.youtube.com/watch?v=O4N68p5Ew6w&t=191s" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+</div>
+</article>
 
-        <a class="btn btn-secondary"
-           href="https://www.youtube.com/"
-           target="_blank" rel="noopener noreferrer">
-          ▶ Visit YouTube
-        </a>
-      </div>
-    </div>
-  </section>
+<article class="card" data-category="nature">
+<img class="video" style="object-fit:cover" src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=80" alt="Green nature landscape" loading="lazy">
+<div class="content">
+<h2>Nature Adventures</h2>
+<p>හරිත පරිසරය සහ නිදහසේ ගත කරන සුන්දර මොහොතක්.</p>
+<a class="link" href="destinations.html">Explore Destinations →</a>
+</div>
+</article>
 
-  <section class="section" id="all-videos">
-    <div class="container">
-
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">Watch & Explore</span>
-          <h2>Latest Travel Videos</h2>
-          <p>Choose a video and join the journey.</p>
-        </div>
-      </div>
-
-      <div class="search-wrap">
-        <input
-          class="search"
-          id="videoSearch"
-          type="search"
-          placeholder="🔎 Search travel videos..."
-          aria-label="Search travel videos">
-      </div>
-
-      <div class="filters" aria-label="Video categories">
-        <button class="filter active" data-filter="all">All Videos</button>
-        <button class="filter" data-filter="village">Village Life</button>
-        <button class="filter" data-filter="nature">Nature</button>
-        <button class="filter" data-filter="travel">Travel Vlogs</button>
-      </div>
-
-      <div class="video-grid" id="videoGrid">
-
-        <!-- VIDEO 1 -->
-        <article class="video-card"
-                 data-category="travel"
-                 data-title="Travel vlog adventure sri lanka">
-          <a href="https://www.youtube.com/watch?v=QiUTa15-gpk"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Watch Travel Vlog 1 on YouTube">
-            <div class="thumbnail">
-              <img
-                src="https://img.youtube.com/vi/QiUTa15-gpk/hqdefault.jpg"
-                alt="Dami Traveling video thumbnail"
-                loading="lazy">
-              <div class="play"><span>▶</span></div>
-            </div>
-          </a>
-          <div class="video-info">
-            <span class="tag">Travel Vlog</span>
-            <h3>Let's Explore Together</h3>
-            <p>Join us on another exciting travel adventure.</p>
-            <a class="watch"
-               href="https://www.youtube.com/watch?v=QiUTa15-gpk"
-               target="_blank" rel="noopener noreferrer">
-              Watch on YouTube ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- VIDEO 2 -->
-        <article class="video-card"
-                 data-category="nature"
-                 data-title="beautiful nature travel vlog sri lanka">
-          <a href="https://www.youtube.com/watch?v=O4N68p5Ew6w&t=191s"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Watch Travel Vlog 2 on YouTube">
-            <div class="thumbnail">
-              <img
-                src="https://img.youtube.com/vi/O4N68p5Ew6w/hqdefault.jpg"
-                alt="Beautiful nature travel vlog thumbnail"
-                loading="lazy">
-              <div class="play"><span>▶</span></div>
-            </div>
-          </a>
-          <div class="video-info">
-            <span class="tag">Nature</span>
-            <h3>Beautiful Nature & Adventures</h3>
-            <p>Enjoy the scenery and peaceful moments of the journey.</p>
-            <a class="watch"
-               href="https://www.youtube.com/watch?v=O4N68p5Ew6w&t=191s"
-               target="_blank" rel="noopener noreferrer">
-              Watch on YouTube ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- VIDEO 3 - REPLACE WITH YOUR VIDEO -->
-        <article class="video-card"
-                 data-category="village"
-                 data-title="village life sri lanka">
-          <a href="https://www.youtube.com/"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Find village life videos on YouTube">
-            <div class="thumbnail">
-              <img
-                src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=800&q=80"
-                alt="Green tropical landscape"
-                loading="lazy">
-              <div class="play"><span>▶</span></div>
-            </div>
-          </a>
-          <div class="video-info">
-            <span class="tag">Village Life</span>
-            <h3>Beautiful Village Life</h3>
-            <p>Experience the peaceful beauty of village life.</p>
-            <a class="watch"
-               href="https://www.youtube.com/"
-               target="_blank" rel="noopener noreferrer">
-              Watch on YouTube ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- VIDEO 4 - REPLACE WITH YOUR VIDEO -->
-        <article class="video-card"
-                 data-category="nature"
-                 data-title="waterfalls mountains green nature">
-          <a href="https://www.youtube.com/"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Find nature videos on YouTube">
-            <div class="thumbnail">
-              <img
-                src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80"
-                alt="Waterfall surrounded by nature"
-                loading="lazy">
-              <div class="play"><span>▶</span></div>
-            </div>
-          </a>
-          <div class="video-info">
-            <span class="tag">Nature</span>
-            <h3>Waterfalls & Green Mountains</h3>
-            <p>Explore refreshing waterfalls and green landscapes.</p>
-            <a class="watch"
-               href="https://www.youtube.com/"
-               target="_blank" rel="noopener noreferrer">
-              Watch on YouTube ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- VIDEO 5 - REPLACE WITH YOUR VIDEO -->
-        <article class="video-card"
-                 data-category="travel"
-                 data-title="road trip adventure travel">
-          <a href="https://www.youtube.com/"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Find road trip videos on YouTube">
-            <div class="thumbnail">
-              <img
-                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
-                alt="Majestic mountain scenery"
-                loading="lazy">
-              <div class="play"><span>▶</span></div>
-            </div>
-          </a>
-          <div class="video-info">
-            <span class="tag">Travel Vlog</span>
-            <h3>Road Trip Adventures</h3>
-            <p>Discover new places and unforgettable views.</p>
-            <a class="watch"
-               href="https://www.youtube.com/"
-               target="_blank" rel="noopener noreferrer">
-              Watch on YouTube ↗
-            </a>
-          </div>
-        </article>
-
-        <!-- VIDEO 6 - REPLACE WITH YOUR VIDEO -->
-        <article class="video-card"
-                 data-category="village"
-                 data-title="sri lanka countryside village journey">
-          <a href="https://www.youtube.com/"
-             target="_blank" rel="noopener noreferrer"
-             aria-label="Find countryside videos on YouTube">
-            <div class="thumbnail">
-              <img
-                src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80"
-                alt="Peaceful countryside landscape"
-                loading="lazy">
-              <div class="play"><span>▶</span></div>
-            </div>
-          </a>
-          <div class="video-info">
-            <span class="tag">Village Life</span>
-            <h3>Peaceful Countryside Journey</h3>
-            <p>Take a break and enjoy the beauty of nature.</p>
-            <a class="watch"
-               href="https://www.youtube.com/"
-               target="_blank" rel="noopener noreferrer">
-              Watch on YouTube ↗
-            </a>
-          </div>
-        </article>
-
-        <div class="empty" id="emptyMessage">
-          No videos found. Try another search.
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="cta">
-        <div>
-          <h2>Love travelling? 🌿</h2>
-          <p>Visit our YouTube channel and explore more adventures.</p>
-        </div>
-        <a class="btn btn-primary"
-           href="https://www.youtube.com/"
-           target="_blank" rel="noopener noreferrer">
-          Explore YouTube ↗
-        </a>
-      </div>
-    </div>
-  </section>
+<article class="card" data-category="travel">
+<img class="video" style="object-fit:cover" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" alt="Mountain travel landscape" loading="lazy">
+<div class="content">
+<h2>Mountain Journeys</h2>
+<p>කඳුකරයේ ලස්සන බලන්න සහ ඊළඟ ගමන සැලසුම් කරන්න.</p>
+<a class="link" href="destinations.html">Explore Destinations →</a>
+</div>
+</article>
+</div>
+<p class="empty" id="empty">මේ නමට ගැළපෙන videos හමු වුණේ නැහැ.</p>
+</div>
+</section>
 </main>
 
 <footer>
-  <div class="container footer-inner">
-    <p>© <span id="year"></span> <strong>Dami Traveling</strong>. All rights reserved.</p>
-    <p>Made with ❤️ for travel lovers.</p>
-  </div>
+<div class="container footer">
+<span>© 2026 DAMI TRAVELING</span>
+<span>Made with ❤️ for travel lovers</span>
+</div>
 </footer>
 
 <script>
-  const searchInput = document.getElementById("videoSearch");
-  const filterButtons = document.querySelectorAll(".filter");
-  const videoCards = document.querySelectorAll(".video-card");
-  const emptyMessage = document.getElementById("emptyMessage");
-
-  let activeCategory = "all";
-
-  function filterVideos() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    let visibleCount = 0;
-
-    videoCards.forEach(function(card) {
-      const category = card.dataset.category;
-      const title = card.dataset.title.toLowerCase();
-      const text = card.innerText.toLowerCase();
-
-      const matchesCategory =
-        activeCategory === "all" || category === activeCategory;
-
-      const matchesSearch =
-        title.includes(searchTerm) || text.includes(searchTerm);
-
-      const visible = matchesCategory && matchesSearch;
-
-      card.style.display = visible ? "" : "none";
-
-      if (visible) visibleCount++;
-    });
-
-    emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
-  }
-
-  filterButtons.forEach(function(button) {
-    button.addEventListener("click", function() {
-      filterButtons.forEach(function(item) {
-        item.classList.remove("active");
-      });
-
-      button.classList.add("active");
-      activeCategory = button.dataset.filter;
-      filterVideos();
-    });
-  });
-
-  searchInput.addEventListener("input", filterVideos);
-
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+const search=document.getElementById('search');
+const cards=[...document.querySelectorAll('#videoGrid .card')];
+const buttons=[...document.querySelectorAll('.filters button')];
+let category='all';
+function updateVideos(){
+const term=search.value.toLowerCase().trim();
+let visible=0;
+cards.forEach(card=>{
+const matchesCategory=category==='all'||card.dataset.category===category;
+const matchesText=card.innerText.toLowerCase().includes(term);
+const show=matchesCategory&&matchesText;
+card.style.display=show?'':'none';
+if(show)visible++;
+});
+document.getElementById('empty').style.display=visible?'none':'block';
+}
+search.addEventListener('input',updateVideos);
+buttons.forEach(button=>button.addEventListener('click',()=>{
+category=button.dataset.filter;
+buttons.forEach(b=>b.classList.toggle('active',b===button));
+updateVideos();
+}));
 </script>
-
 </body>
 </html>
