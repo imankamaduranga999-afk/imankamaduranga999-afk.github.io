@@ -1,1 +1,120 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Destinations — Dami Traveling</title><link rel="stylesheet" href="css/style.css"></head><body><header class="site-header"><div class="wrap header-inner"><a class="brand" href="index.html"><img src="assets/dami-logo.png" alt="Dami Traveling logo"><span>Dami Traveling</span></a><button class="menu">☰</button><nav class="nav"><a href="index.html">Home</a><a class="active" href="destinations.html">Destinations</a><a href="videos.html">Videos</a><a href="gallery.html">Gallery</a><a href="about.html">About</a><a class="cta" href="contact.html">Contact</a></nav></div></header><main><section class="page-hero"><div class="wrap reveal"><span class="kicker">SRI LANKA • EXPLORE</span><h1>Places worth the drive.</h1><p>From mountains and tea country to beaches, forests and ancient cities.</p></div></section><section class="section wrap"><div class="destination-grid"><article class="destination reveal"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1000&q=85" alt="Sigiriya landscape"><div class="destination-body"><span class="tag">CULTURE</span><h3>Sigiriya</h3><p>Ancient history, dramatic rock views and a sunrise worth waking up for.</p></div></article><article class="destination reveal"><img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4a6?auto=format&fit=crop&w=1000&q=85" alt="Sri Lankan highlands"><div class="destination-body"><span class="tag">HIGHLANDS</span><h3>Ella</h3><p>Misty hills, tea estates, train rides and slow mornings.</p></div></article><article class="destination reveal"><img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85" alt="Sri Lankan beach"><div class="destination-body"><span class="tag">COAST</span><h3>South Coast</h3><p>Golden beaches, local food and roads that are made for exploring.</p></div></article><article class="destination reveal"><img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=85" alt="Temple in Sri Lanka"><div class="destination-body"><span class="tag">HERITAGE</span><h3>Kandy</h3><p>Temples, culture and mountain roads wrapped around a beautiful lake.</p></div></article><article class="destination reveal"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85" alt="Mountain landscape"><div class="destination-body"><span class="tag">NATURE</span><h3>Nuwara Eliya</h3><p>Cool air, green hills and some of the island's most scenic roads.</p></div></article><article class="destination reveal"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=85" alt="Forest landscape"><div class="destination-body"><span class="tag">WILD</span><h3>Hidden Sri Lanka</h3><p>Quiet corners, unexpected views and places beyond the usual route.</p></div></article></div></section></main><footer class="footer"><div class="wrap bottom"><span>© 2026 Dami Traveling</span><a href="videos.html">Watch the journeys →</a></div></footer><script src="js/script.js"></script></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Destinations | Dami Traveling</title>
+<meta name="description" content="Explore Sri Lanka's beautiful destinations with Dami Traveling.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#06100e;--panel:#0c1b17;--green:#c7ff45;--mint:#51e6b5;--muted:#b8c8c0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,92%);margin:auto}
+header{position:sticky;top:0;z-index:5;background:#06100ef5;border-bottom:1px solid #234138}
+.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:14px 0}
+.logo{font-size:23px;font-weight:bold}.logo span{color:var(--mint)}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{font-size:14px;color:#e6eee9}
+nav a:hover,nav a.active{color:var(--green)}
+.hero{text-align:center;padding:70px 15px;background:radial-gradient(ellipse at top,#174637,#06100e 72%)}
+.kicker{color:var(--green);font-size:12px;font-weight:bold;letter-spacing:3px}
+h1{font-size:clamp(38px,6vw,62px);margin:12px 0}
+.hero p{color:var(--muted);max-width:680px;margin:auto}
+main{padding:45px 0 70px}
+.intro{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:25px}
+.intro h2{font-size:30px;margin-top:7px}
+.intro p{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{background:var(--panel);border:1px solid #24463a;border-radius:16px;overflow:hidden;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);border-color:var(--green)}
+.card img{width:100%;height:220px;object-fit:cover;display:block}
+.card-body{padding:20px}
+.tag{font-size:11px;letter-spacing:2px;color:var(--green);font-weight:bold}
+h3{font-size:21px;margin:7px 0}
+.card p{font-size:14px;color:var(--muted);min-height:65px}
+.links{display:flex;gap:15px;flex-wrap:wrap;margin-top:17px}
+.links a{font-size:13px;color:var(--green);font-weight:bold}
+.links a:hover{text-decoration:underline}
+.banner{margin-top:55px;padding:35px;border-radius:18px;background:linear-gradient(110deg,#123328,#0b1713);border:1px solid #245043}
+.banner h2{font-size:clamp(25px,4vw,36px);margin:8px 0}
+.banner p{color:var(--muted);margin-bottom:18px}
+.btn{display:inline-block;padding:12px 20px;border-radius:30px;background:var(--green);color:#09150c;font-weight:bold;font-size:14px}
+footer{border-top:1px solid #234138;padding:25px 0;color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+footer a{color:var(--mint)}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.navbar{justify-content:center}.logo{width:100%;text-align:center}nav{justify-content:center;gap:12px}.grid{grid-template-columns:1fr}.card img{height:230px}.hero{padding:48px 12px}.intro h2{font-size:25px}.banner{padding:24px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap navbar">
+    <a class="logo" href="index.html">⛰ Dami <span>Traveling</span></a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="destinations.html">Destinations</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <span class="kicker">DISCOVER THE ISLAND</span>
+  <h1>Explore Sri Lanka 🇱🇰</h1>
+  <p>From ancient kingdoms and misty mountains to peaceful villages, waterfalls and golden beaches — discover your next adventure.</p>
+</section>
+
+<main class="wrap">
+  <div class="intro">
+    <div><span class="kicker">PLACES WORTH VISITING</span><h2>Find Your Next Adventure</h2></div>
+    <p>Choose a destination and start exploring.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1588598198321-9735fd524b0b?auto=format&fit=crop&w=850&q=85" alt="Ancient rock fortress landscape" loading="lazy">
+      <div class="card-body"><span class="tag">HISTORY & CULTURE</span><h3>Sigiriya</h3><p>Discover Sri Lanka's famous rock fortress, ancient history and beautiful green surroundings.</p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Sigiriya+Sri+Lanka" target="_blank" rel="noopener">📍 View Map ↗</a><a href="videos.html">Watch Videos →</a></div></div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=850&q=85" alt="Green hills and mountain scenery" loading="lazy">
+      <div class="card-body"><span class="tag">HILL COUNTRY</span><h3>Ella</h3><p>Enjoy misty mountain views, scenic trails, tea plantations and unforgettable train journeys.</p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Ella+Sri+Lanka" target="_blank" rel="noopener">📍 View Map ↗</a><a href="videos.html">Watch Videos →</a></div></div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=850&q=85" alt="Tropical beach beside the ocean" loading="lazy">
+      <div class="card-body"><span class="tag">BEACH ESCAPE</span><h3>Mirissa</h3><p>Relax by the ocean, enjoy golden sands and experience Sri Lanka's beautiful southern coast.</p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Mirissa+Sri+Lanka" target="_blank" rel="noopener">📍 View Map ↗</a><a href="videos.html">Watch Videos →</a></div></div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=850&q=85" alt="Waterfall surrounded by green forest" loading="lazy">
+      <div class="card-body"><span class="tag">NATURE & WATER</span><h3>Waterfalls</h3><p>Explore refreshing waterfalls and lush natural scenery on your next countryside trip.</p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=waterfalls+Sri+Lanka" target="_blank" rel="noopener">📍 Find Waterfalls ↗</a><a href="gallery.html">View Gallery →</a></div></div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=850&q=85" alt="Beautiful green forest" loading="lazy">
+      <div class="card-body"><span class="tag">GREEN ESCAPE</span><h3>Haputale</h3><p>Discover peaceful highland scenery, tea country and spectacular views across the hills.</p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Haputale+Sri+Lanka" target="_blank" rel="noopener">📍 View Map ↗</a><a href="videos.html">Watch Videos →</a></div></div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=850&q=85" alt="Ocean waves along a tropical coast" loading="lazy">
+      <div class="card-body"><span class="tag">COASTAL JOURNEY</span><h3>Southern Coast</h3><p>Travel along the coast to discover ocean views, fishing villages and beautiful beaches.</p><div class="links"><a href="https://www.google.com/maps/search/?api=1&query=Southern+coast+Sri+Lanka" target="_blank" rel="noopener">📍 View Map ↗</a><a href="gallery.html">View Gallery →</a></div></div>
+    </article>
+  </div>
+
+  <section class="banner">
+    <span class="kicker">READY TO EXPLORE?</span>
+    <h2>Every Journey Has a Story</h2>
+    <p>Join Dami Traveling and discover more beautiful places around our island.</p>
+    <a class="btn" href="videos.html">▶ Watch Travel Videos</a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© 2026 Dami Traveling · Explore Sri Lanka 🇱🇰</p>
+    <p><a href="https://youtube.com/@damitha-w6f" target="_blank" rel="noopener">YouTube</a> · <a href="index.html">Back to Home ↑</a></p>
+  </div>
+</footer>
+</body>
+</html>
