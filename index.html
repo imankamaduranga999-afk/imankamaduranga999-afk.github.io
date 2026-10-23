@@ -3,155 +3,147 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dami Traveling | Explore Sri Lanka</title>
+<meta name="description" content="Explore Sri Lanka's mountains, waterfalls, villages and beaches with Dami Traveling.">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: Arial, sans-serif;
-  background: #071b19;
-  color: white;
-}
-header {
-  padding: 22px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  background: #092622;
-}
-.logo { font-size: 25px; font-weight: bold; color: #64e6b0; }
-nav { display: flex; gap: 20px; flex-wrap: wrap; }
-nav a { color: white; text-decoration: none; font-size: 14px; }
-nav a:hover { color: #64e6b0; }
-.hero {
-  min-height: 570px;
-  display: flex;
-  align-items: center;
-  padding: 75px 8%;
-  background:
-    linear-gradient(90deg, rgba(3,20,17,.88), rgba(3,20,17,.2)),
-    url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85')
-    center/cover;
-}
-.hero-content { max-width: 650px; }
-.tag {
-  color: #64e6b0;
-  letter-spacing: 4px;
-  font-size: 13px;
-  font-weight: bold;
-}
-h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.1; margin: 22px 0; }
-h1 span { color: #64e6b0; }
-.hero p { font-size: 17px; line-height: 1.8; color: #e1e9e5; }
-.btn {
-  display: inline-block;
-  margin-top: 28px;
-  padding: 15px 25px;
-  border-radius: 6px;
-  background: #64e6b0;
-  color: #08231c;
-  text-decoration: none;
-  font-weight: bold;
-}
-section { padding: 70px 8%; }
-.section-title { font-size: 34px; margin-bottom: 15px; }
-.intro { color: #b8cbc4; line-height: 1.8; margin-bottom: 30px; }
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
-}
-.card {
-  overflow: hidden;
-  background: #10302a;
-  border-radius: 12px;
-  border: 1px solid #24463d;
-}
-.card img { width: 100%; height: 190px; object-fit: cover; display: block; }
-.card h3 { padding: 18px 18px 8px; }
-.card p { padding: 0 18px 22px; color: #b8cbc4; line-height: 1.7; }
-.about { background: #0b2520; }
-footer {
-  text-align: center;
-  padding: 30px 15px;
-  color: #b8cbc4;
-  background: #061512;
-  line-height: 1.8;
-}
-@media(max-width:600px) {
-  header { padding: 20px 5%; }
-  nav { gap: 13px; }
-  .hero { min-height: 500px; padding: 55px 6%; }
-  section { padding: 55px 6%; }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#06100e;--panel:#0c1b17;--green:#c7ff45;--mint:#51e6b5;--muted:#b8c8c0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;object-fit:cover}
+.wrap{width:min(1200px,90%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:#06100ef2;border-bottom:1px solid #234138;backdrop-filter:blur(12px)}
+.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:23px;font-weight:800;color:#fff;white-space:nowrap}
+.logo span{color:var(--mint)}
+nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+nav a{font-size:14px;color:#e8f0eb}
+nav a:hover,nav a.active{color:var(--green)}
+.subscribe,.btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;padding:12px 20px;border-radius:30px;font-weight:bold;font-size:14px}
+.subscribe,.btn-main{background:var(--green);color:#0b170b}
+.hero{min-height:510px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,#06100e 0%,#06100edb 35%,#06100e30 100%),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=85') center 48%/cover no-repeat}
+.hero-content{padding:85px 0;max-width:680px}
+.kicker{font-size:12px;font-weight:bold;letter-spacing:3px;color:var(--green)}
+h1{font-size:clamp(42px,7vw,76px);line-height:1.05;margin:18px 0}
+h1 span{color:var(--green)}
+.hero p{max-width:540px;color:#e0e8e3;font-size:17px}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:27px}
+.btn-outline{border:1px solid var(--green);color:white}
+.btn:hover,.subscribe:hover{transform:translateY(-2px)}
+.features{display:grid;grid-template-columns:repeat(4,1fr);background:#071915;border:1px solid #15453a;border-radius:18px;padding:24px 12px;margin-top:-30px;position:relative;z-index:2}
+.feature{padding:10px 20px;border-right:1px solid #23483c}
+.feature:last-child{border:0}
+.feature strong{display:block;color:var(--mint);font-size:16px;margin-bottom:5px}
+.feature p{font-size:13px;color:var(--muted)}
+section.content{padding:65px 0 15px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap}
+.section-head h2{font-size:clamp(27px,4vw,38px);line-height:1.2;margin-top:7px}
+.section-head p{font-size:14px;color:var(--muted)}
+.view-all{color:var(--green);font-weight:bold;font-size:14px}
+.places{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.place{position:relative;min-height:220px;overflow:hidden;border-radius:14px;border:1px solid #285044;background:var(--panel)}
+.place img{height:100%;min-height:220px;position:absolute;inset:0;transition:transform .35s}
+.place:hover img{transform:scale(1.07)}
+.place:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,#020a08ed)}
+.place-info{position:absolute;z-index:1;bottom:15px;left:15px;right:10px}
+.place-info h3{font-size:17px}
+.place-info p{font-size:12px;color:#d0ddd5}
+.place-info h3:before{content:"⌖ ";color:var(--green)}
+.video-banner{margin-top:65px;padding:38px;border:1px solid #245043;border-radius:20px;background:linear-gradient(110deg,#102b22,#091512)}
+.video-banner h2{font-size:clamp(25px,4vw,36px);margin:8px 0}
+.video-banner p{color:var(--muted);margin-bottom:22px}
+footer{margin-top:65px;border-top:1px solid #1e3a30;padding:30px 0;color:var(--muted);font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--mint)}
+@media(max-width:950px){.navbar{padding:15px 0;flex-wrap:wrap;justify-content:center}.logo{width:100%;text-align:center}nav{justify-content:center;gap:15px}.places{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}.feature:nth-child(2){border-right:0}.feature:nth-child(-n+2){border-bottom:1px solid #23483c}.feature{padding:16px}}
+@media(max-width:600px){.wrap{width:92%}.hero{min-height:480px;background-position:center}.hero-content{padding:65px 0}h1{font-size:46px}.hero p{font-size:15px}.features{margin-top:-18px;padding:12px 6px}.feature{padding:12px 10px}.feature strong{font-size:14px}.feature p{font-size:12px}.places{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.place,.place img{min-height:190px}.place-info{left:10px;bottom:10px}.place-info h3{font-size:15px}.video-banner{padding:25px 20px}.section-head{align-items:start;flex-direction:column}nav{gap:12px}nav a{font-size:13px}.subscribe{padding:9px 14px}}
 </style>
 </head>
 <body>
-
 <header>
-  <div class="logo">🌿 DAMI TRAVELING</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#destinations">Destinations</a>
-    <a href="#about">About</a>
-    <a href="videos.html">Videos</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="wrap navbar">
+    <a class="logo" href="index.html">⛰ Dami <span>Traveling</span></a>
+    <nav aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="videos.html">Videos</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="subscribe" href="https://youtube.com/@damitha-w6f" target="_blank" rel="noopener">▶ Subscribe</a>
+  </div>
 </header>
 
 <main>
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="tag">TRAVEL • EXPLORE • DISCOVER</div>
-      <h1>Discover the Beauty of <span>Sri Lanka</span></h1>
-      <p>
-        Join me on an unforgettable journey through beautiful
-        mountains, hidden waterfalls, peaceful villages and
-        amazing places across our island.
-      </p>
-      <a class="btn" href="videos.html">▶ Explore My Videos</a>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="kicker">WELCOME TO DAMI TRAVELING</span>
+        <h1>Explore the Beauty of <span>Sri Lanka</span></h1>
+        <p>From misty mountains to golden beaches, ancient cities to hidden gems — let's explore Sri Lanka together.</p>
+        <div class="actions">
+          <a class="btn btn-main" href="videos.html">▶ Watch Our Videos</a>
+          <a class="btn btn-outline" href="destinations.html">⌖ Explore Destinations</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="destinations">
-    <h2 class="section-title">Explore Nature 🌿</h2>
-    <p class="intro">Discover the natural beauty and hidden treasures of Sri Lanka.</p>
-    <div class="cards">
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Beautiful mountains">
-        <h3>⛰️ Beautiful Mountains</h3>
-        <p>Explore breathtaking mountain views and green landscapes.</p>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80" alt="Waterfall in nature">
-        <h3>💧 Waterfalls</h3>
-        <p>Discover peaceful waterfalls and refreshing natural beauty.</p>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="Green countryside">
-        <h3>🌳 Village Life</h3>
-        <p>Enjoy quiet village roads, green fields and local adventures.</p>
-      </article>
+  <div class="wrap">
+    <div class="features">
+      <div class="feature"><strong>⛰ Stunning Landscapes</strong><p>Mountains, waterfalls, forests and natural beauty.</p></div>
+      <div class="feature"><strong>◎ Amazing Places</strong><p>Discover hidden gems and iconic locations.</p></div>
+      <div class="feature"><strong>➤ Real Adventures</strong><p>Experience local culture, food and people.</p></div>
+      <div class="feature"><strong>♡ Travel Together</strong><p>Join our journey with Dami Traveling.</p></div>
     </div>
-  </section>
 
-  <section class="about" id="about">
-    <h2 class="section-title">Welcome to Dami Traveling!</h2>
-    <p class="intro">
-      This is my little corner for sharing travel adventures,
-      beautiful places and unforgettable experiences.
-      Come along and explore Sri Lanka with me!
-    </p>
-    <a class="btn" href="videos.html">Watch Travel Videos →</a>
-  </section>
+    <section class="content">
+      <div class="section-head">
+        <div><span class="kicker">POPULAR DESTINATIONS</span><h2>Most Loved Places</h2></div>
+        <a class="view-all" href="destinations.html">View All Destinations →</a>
+      </div>
+      <div class="places">
+        <a class="place" href="destinations.html">
+          <img src="https://images.unsplash.com/photo-1588598198321-9735fd524b0b?auto=format&fit=crop&w=650&q=80" alt="Sigiriya rock and green landscape" loading="lazy">
+          <div class="place-info"><h3>Sigiriya</h3><p>Ancient Rock Fortress</p></div>
+        </a>
+        <a class="place" href="destinations.html">
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=650&q=80" alt="Beautiful green mountain scenery" loading="lazy">
+          <div class="place-info"><h3>Ella</h3><p>Hill Country Paradise</p></div>
+        </a>
+        <a class="place" href="destinations.html">
+          <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=650&q=80" alt="Tropical beach and turquoise ocean" loading="lazy">
+          <div class="place-info"><h3>Mirissa</h3><p>Beaches and Ocean Views</p></div>
+        </a>
+        <a class="place" href="destinations.html">
+          <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=650&q=80" alt="Waterfall surrounded by forest" loading="lazy">
+          <div class="place-info"><h3>Waterfalls</h3><p>Nature's Hidden Beauty</p></div>
+        </a>
+        <a class="place" href="destinations.html">
+          <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=650&q=80" alt="Green forest and nature trail" loading="lazy">
+          <div class="place-info"><h3>Haputale</h3><p>Tea Country and Views</p></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="video-banner">
+      <span class="kicker">YOUR NEXT ADVENTURE</span>
+      <h2>See Sri Lanka Through Our Journey</h2>
+      <p>Watch our travel videos and discover new places with Dami Traveling.</p>
+      <a class="btn btn-main" href="videos.html">▶ Explore Our Videos</a>
+      <a class="btn btn-outline" href="https://youtube.com/@damitha-w6f" target="_blank" rel="noopener">Visit YouTube ↗</a>
+    </section>
+  </div>
 </main>
 
 <footer>
-  <p>© 2026 Dami Traveling | Explore the beauty of Sri Lanka 🇱🇰</p>
+  <div class="wrap footer-inner">
+    <p>© 2026 Dami Traveling · Explore Sri Lanka 🇱🇰</p>
+    <p>Follow our journey on <a href="https://youtube.com/@damitha-w6f" target="_blank" rel="noopener">YouTube</a> and <a href="https://www.tiktok.com/@dami695572661" target="_blank" rel="noopener">TikTok</a>.</p>
+  </div>
 </footer>
-
 </body>
 </html>
