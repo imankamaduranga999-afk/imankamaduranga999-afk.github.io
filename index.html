@@ -1,250 +1,422 @@
 
-<section class="content wrap">
-  <div class="section-head">
-    <div>
-      <span class="kicker">FEATURED VIDEO</span>
-      <h2>Watch Our Latest Adventure</h2>
-      <p>Join Dami Traveling and explore the beauty of Sri Lanka.</p>
-    </div>
-    <a class="view-all" href="videos.html">All Videos →</a>
-  </div>
-
-  <div style="max-width:900px;margin:auto;background:#0c1b17;padding:12px;border:1px solid #245043;border-radius:18px;">
-    <div style="position:relative;width:100%;aspect-ratio:16/9;">
-      <iframe
-        src="https://www.youtube.com/embed/QiUTa15-gpk"
-        title="Dami Traveling featured video"
-        style="position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px;"
-        allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
-    </div>
-    <p style="padding:14px 8px 4px;color:#b8c8c0;">
-      ▶ Watch, enjoy and subscribe to Dami Traveling!
-    </p>
-  </div>
-</section>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dami Traveling | Explore Sri Lanka</title>
-<meta name="description" content="Explore Sri Lanka's mountains, waterfalls, villages and beaches with Dami Traveling.">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#06100e;--panel:#0c1b17;--green:#c7ff45;--mint:#51e6b5;--muted:#b8c8c0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#fff;line-height:1.6}
-a{color:inherit;text-decoration:none}
-img{display:block;width:100%;object-fit:cover}
-.wrap{width:min(1200px,90%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:#06100ef2;border-bottom:1px solid #234138;backdrop-filter:blur(12px)}
-.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-size:23px;font-weight:800;color:#fff;white-space:nowrap}
-.logo span{color:var(--mint)}
-nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-nav a{font-size:14px;color:#e8f0eb}
-nav a:hover,nav a.active{color:var(--green)}
-.subscribe,.btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;padding:12px 20px;border-radius:30px;font-weight:bold;font-size:14px}
-.subscribe,.btn-main{background:var(--green);color:#0b170b}
-.hero{min-height:510px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(90deg,#06100e 0%,#06100edb 35%,#06100e30 100%),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2000&q=85') center 48%/cover no-repeat}
-.hero-content{padding:85px 0;max-width:680px}
-.kicker{font-size:12px;font-weight:bold;letter-spacing:3px;color:var(--green)}
-h1{font-size:clamp(42px,7vw,76px);line-height:1.05;margin:18px 0}
-h1 span{color:var(--green)}
-.hero p{max-width:540px;color:#e0e8e3;font-size:17px}
-.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:27px}
-.btn-outline{border:1px solid var(--green);color:white}
-.btn:hover,.subscribe:hover{transform:translateY(-2px)}
-.features{display:grid;grid-template-columns:repeat(4,1fr);background:#071915;border:1px solid #15453a;border-radius:18px;padding:24px 12px;margin-top:-30px;position:relative;z-index:2}
-.feature{padding:10px 20px;border-right:1px solid #23483c}
-.feature:last-child{border:0}
-.feature strong{display:block;color:var(--mint);font-size:16px;margin-bottom:5px}
-.feature p{font-size:13px;color:var(--muted)}
-section.content{padding:65px 0 15px}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap}
-.section-head h2{font-size:clamp(27px,4vw,38px);line-height:1.2;margin-top:7px}
-.section-head p{font-size:14px;color:var(--muted)}
-.view-all{color:var(--green);font-weight:bold;font-size:14px}
-.places{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
-.place{position:relative;min-height:220px;overflow:hidden;border-radius:14px;border:1px solid #285044;background:var(--panel)}
-.place img{height:100%;min-height:220px;position:absolute;inset:0;transition:transform .35s}
-.place:hover img{transform:scale(1.07)}
-.place:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,#020a08ed)}
-.place-info{position:absolute;z-index:1;bottom:15px;left:15px;right:10px}
-.place-info h3{font-size:17px}
-.place-info p{font-size:12px;color:#d0ddd5}
-.place-info h3:before{content:"⌖ ";color:var(--green)}
-.video-banner{margin-top:65px;padding:38px;border:1px solid #245043;border-radius:20px;background:linear-gradient(110deg,#102b22,#091512)}
-.video-banner h2{font-size:clamp(25px,4vw,36px);margin:8px 0}
-.video-banner p{color:var(--muted);margin-bottom:22px}
-footer{margin-top:65px;border-top:1px solid #1e3a30;padding:30px 0;color:var(--muted);font-size:13px}
-.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-footer a{color:var(--mint)}
-@media(max-width:950px){.navbar{padding:15px 0;flex-wrap:wrap;justify-content:center}.logo{width:100%;text-align:center}nav{justify-content:center;gap:15px}.places{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:repeat(2,1fr)}.feature:nth-child(2){border-right:0}.feature:nth-child(-n+2){border-bottom:1px solid #23483c}.feature{padding:16px}}
-@media(max-width:600px){.wrap{width:92%}.hero{min-height:480px;background-position:center}.hero-content{padding:65px 0}h1{font-size:46px}.hero p{font-size:15px}.features{margin-top:-18px;padding:12px 6px}.feature{padding:12px 10px}.feature strong{font-size:14px}.feature p{font-size:12px}.places{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.place,.place img{min-height:190px}.place-info{left:10px;bottom:10px}.place-info h3{font-size:15px}.video-banner{padding:25px 20px}.section-head{align-items:start;flex-direction:column}nav{gap:12px}nav a{font-size:13px}.subscribe{padding:9px 14px}}
-</style>
-</head>
-<body>
-<header>
-  <div class="wrap navbar">
-    <a class="logo" href="index.html">⛰ Dami <span>Traveling</span></a>
-    <nav aria-label="Main navigation">
-      <a class="active" href="index.html">Home</a>
-      <a href="destinations.html">Destinations</a>
-      <a href="videos.html">Videos</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <a class="subscribe" href="https://youtube.com/@damitha-w6f" target="_blank" rel="noopener">▶ Subscribe</a>
-  </div>
-</header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAMI TRAVELING | Explore Sri Lanka</title>
+  <meta name="description" content="Discover Sri Lanka with Dami Traveling. Explore beautiful destinations, travel videos and nature.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-content">
-        <span class="kicker">WELCOME TO DAMI TRAVELING</span>
-        <h1>Explore the Beauty of <span>Sri Lanka</span></h1>
-        <p>From misty mountains to golden beaches, ancient cities to hidden gems — let's explore Sri Lanka together.</p>
-        <div class="actions">
-          <a class="btn btn-main" href="videos.html">▶ Watch Our Videos</a>
-          <a class="btn btn-outline" href="destinations.html">⌖ Explore Destinations</a>
+    :root {
+      --bg: #07110e;
+      --panel: #102019;
+      --green: #b6f36a;
+      --white: #f5f8f4;
+      --muted: #aab8ae;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: rgba(7,17,14,.97);
+      border-bottom: 1px solid #25372c;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 14px 0;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span { color: var(--green); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: #e1e9e2;
+    }
+
+    nav a:hover { color: var(--green); }
+
+    .hero {
+      min-height: 590px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(3,12,8,.9), rgba(3,12,8,.45)),
+        url("https://images.unsplash.com/photo-1588598198321-9735fd5f9f35?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 80px 0;
+    }
+
+    .tag {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.08;
+      margin: 18px 0;
+    }
+
+    h1 span { color: var(--green); }
+
+    .hero p {
+      color: #e1e9e2;
+      font-size: 18px;
+      max-width: 570px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: #102015;
+      font-weight: bold;
+      padding: 13px 23px;
+      border-radius: 7px;
+      margin: 4px 8px 4px 0;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--green);
+      color: var(--white);
+    }
+
+    section { padding: 72px 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    h2 { font-size: clamp(28px, 4vw, 40px); }
+
+    .section-head p, .muted { color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid #263a2d;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--green);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content { padding: 20px; }
+
+    .card h3 { font-size: 21px; margin-bottom: 8px; }
+
+    .card p { color: var(--muted); margin-bottom: 15px; }
+
+    .text-link { color: var(--green); font-weight: bold; }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+      background: #000;
+    }
+
+    .about-box {
+      background: linear-gradient(135deg, #14291d, #0d1913);
+      border: 1px solid #2c4432;
+      border-radius: 18px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .stat {
+      background: #1b3022;
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .stat strong {
+      color: var(--green);
+      display: block;
+      font-size: 23px;
+    }
+
+    .contact {
+      text-align: center;
+      background: #102019;
+    }
+
+    .contact p {
+      color: var(--muted);
+      margin: 12px 0 24px;
+    }
+
+    footer {
+      border-top: 1px solid #26372c;
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .navbar { justify-content: center; }
+      nav { justify-content: center; gap: 12px; }
+      .hero { min-height: 520px; }
+      .grid { grid-template-columns: 1fr; }
+      .about-box { grid-template-columns: 1fr; padding: 23px; }
+      .card img { height: 230px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="index.html">DAMI <span>TRAVELING</span></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="tag">Discover the beauty of Sri Lanka</div>
+        <h1>Let's Explore<br><span>Beautiful Sri Lanka</span></h1>
+        <p>ගමයි, කඳුයි, ඇළ දොළයි, සුන්දර පරිසරයයි එක්ක අලුත් ගමන් අත්දැකීම් සොයා යමු. Join me on an unforgettable journey!</p>
+        <a class="btn" href="videos.html">Watch My Videos ▶</a>
+        <a class="btn btn-outline" href="destinations.html">Explore Places</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="tag">Explore with me</div>
+            <h2>Discover Amazing Places</h2>
+          </div>
+          <a class="text-link" href="destinations.html">All destinations →</a>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1588258524675-c8c1f5b3c4f7?auto=format&fit=crop&w=900&q=80" alt="Sigiriya rock and landscape" loading="lazy">
+            <div class="card-content">
+              <h3>Sigiriya</h3>
+              <p>Explore Sri Lanka's famous rock fortress and its beautiful surroundings.</p>
+              <a class="text-link" href="destinations.html">Explore →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Green mountains and countryside" loading="lazy">
+            <div class="card-content">
+              <h3>Green Mountains</h3>
+              <p>Beautiful hills, fresh air, winding roads and peaceful nature.</p>
+              <a class="text-link" href="destinations.html">Explore →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Ocean waves on a beach" loading="lazy">
+            <div class="card-content">
+              <h3>Beautiful Beaches</h3>
+              <p>Enjoy coastal views, ocean waves and relaxing beach adventures.</p>
+              <a class="text-link" href="destinations.html">Explore →</a>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="wrap">
-    <div class="features">
-      <div class="feature"><strong>⛰ Stunning Landscapes</strong><p>Mountains, waterfalls, forests and natural beauty.</p></div>
-      <div class="feature"><strong>◎ Amazing Places</strong><p>Discover hidden gems and iconic locations.</p></div>
-      <div class="feature"><strong>➤ Real Adventures</strong><p>Experience local culture, food and people.</p></div>
-      <div class="feature"><strong>♡ Travel Together</strong><p>Join our journey with Dami Traveling.</p></div>
-    </div>
+    <section id="videos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="tag">Watch & enjoy</div>
+            <h2>Latest Travel Videos</h2>
+            <p>Watch my adventures and explore new places with me.</p>
+          </div>
+          <a class="text-link" href="videos.html">All videos →</a>
+        </div>
 
-    <section class="content">
-      <div class="section-head">
-        <div><span class="kicker">POPULAR DESTINATIONS</span><h2>Most Loved Places</h2></div>
-        <a class="view-all" href="destinations.html">View All Destinations →</a>
-      </div>
-      <div class="places">
-        <a class="place" href="destinations.html">
-          <img src="https://images.unsplash.com/photo-1588598198321-9735fd524b0b?auto=format&fit=crop&w=650&q=80" alt="Sigiriya rock and green landscape" loading="lazy">
-          <div class="place-info"><h3>Sigiriya</h3><p>Ancient Rock Fortress</p></div>
-        </a>
-        <a class="place" href="destinations.html">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=650&q=80" alt="Beautiful green mountain scenery" loading="lazy">
-          <div class="place-info"><h3>Ella</h3><p>Hill Country Paradise</p></div>
-        </a>
-        <a class="place" href="destinations.html">
-          <img src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=650&q=80" alt="Tropical beach and turquoise ocean" loading="lazy">
-          <div class="place-info"><h3>Mirissa</h3><p>Beaches and Ocean Views</p></div>
-        </a>
-        <a class="place" href="destinations.html">
-          <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=650&q=80" alt="Waterfall surrounded by forest" loading="lazy">
-          <div class="place-info"><h3>Waterfalls</h3><p>Nature's Hidden Beauty</p></div>
-        </a>
-        <a class="place" href="destinations.html">
-          <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=650&q=80" alt="Green forest and nature trail" loading="lazy">
-          <div class="place-info"><h3>Haputale</h3><p>Tea Country and Views</p></div>
-        </a>
+        <div class="grid">
+          <article class="card">
+            <iframe class="video-frame"
+              src="https://www.youtube-nocookie.com/embed/QiUTa15-gpk"
+              title="Dami Traveling video one"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+            <div class="card-content">
+              <h3>Travel Adventure</h3>
+              <p>Come along for a beautiful journey.</p>
+              <a class="text-link" href="https://www.youtube.com/watch?v=QiUTa15-gpk" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <iframe class="video-frame"
+              src="https://www.youtube-nocookie.com/embed/O4N68p5Ew6w?start=191"
+              title="Dami Traveling video two"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+            <div class="card-content">
+              <h3>Beautiful Sri Lanka</h3>
+              <p>Discover more places and travel memories.</p>
+              <a class="text-link" href="https://www.youtube.com/watch?v=O4N68p5Ew6w&t=191s" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-content">
+              <h3>More Adventures Coming Soon</h3>
+              <p>Visit the videos page to find more travel content.</p>
+              <a class="text-link" href="videos.html">View videos →</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="video-banner">
-      <span class="kicker">YOUR NEXT ADVENTURE</span>
-      <h2>See Sri Lanka Through Our Journey</h2>
-      <p>Watch our travel videos and discover new places with Dami Traveling.</p>
-      <a class="btn btn-main" href="videos.html">▶ Explore Our Videos</a>
-      <a class="btn btn-outline" href="https://youtube.com/@damitha-w6f" target="_blank" rel="noopener">Visit YouTube ↗</a>
+    <section id="about">
+      <div class="container">
+        <div class="about-box">
+          <div>
+            <div class="tag">A little about me</div>
+            <h2>Welcome to Dami Traveling</h2>
+            <p>ආයුබෝවන්! Welcome to my travel world. This is where I share my journeys, beautiful places, village life, green mountains, rivers and unforgettable moments around Sri Lanka.</p>
+            <p>Subscribe to the YouTube channel and join me on the next adventure!</p>
+            <a class="btn" href="https://www.youtube.com/" target="_blank" rel="noopener">Visit YouTube ↗</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>Travel</strong><span>New adventures</span></div>
+            <div class="stat"><strong>Nature</strong><span>Beautiful views</span></div>
+            <div class="stat"><strong>Explore</strong><span>Hidden places</span></div>
+            <div class="stat"><strong>Memories</strong><span>Real journeys</span></div>
+          </div>
+        </div>
+      </div>
     </section>
-  </div>
-</main>
 
-<section style="max-width:1100px;width:92%;margin:50px auto;color:white;font-family:Arial,sans-serif;">
-  <h2 style="color:#c7ff45;font-size:32px;margin-bottom:24px;">Our Travel Videos 🇱🇰</h2>
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="tag">Stay connected</div>
+        <h2>Let's Explore Together!</h2>
+        <p>Follow my travel adventures and watch more videos on YouTube.</p>
+        <a class="btn" href="https://www.youtube.com/" target="_blank" rel="noopener">Visit YouTube Channel ↗</a>
+        <a class="btn btn-outline" href="videos.html">Watch Videos</a>
+      </div>
+    </section>
+  </main>
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));gap:24px;">
-    <div style="background:#0c1b17;padding:12px;border-radius:16px;border:1px solid #245043;">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/QiUTa15-gpk"
-        title="Dami Traveling Video 1"
-        style="display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:10px;"
-        allowfullscreen>
-      </iframe>
-      <h3 style="padding:12px 4px;">Travel Adventure 01</h3>
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year">2026</span> DAMI TRAVELING. All rights reserved.</div>
+      <div>Made with ❤️ for travel lovers</div>
     </div>
-
-    <div style="background:#0c1b17;padding:12px;border-radius:16px;border:1px solid #245043;">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/O4N68p5Ew6w?start=191"
-        title="Dami Traveling Video 2"
-        style="display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:10px;"
-        allowfullscreen>
-      </iframe>
-      <h3 style="padding:12px 4px;">Travel Adventure 02</h3>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap footer-inner">
-    <p>© 2026 Dami Traveling · Explore Sri Lanka 🇱🇰</p>
-    <p>Follow our journey on <a href="https://youtube.com/@damitha-w6f" target="_blank" rel="noopener">YouTube</a> and <a href="https://www.tiktok.com/@dami695572661" target="_blank" rel="noopener">TikTok</a>.</p>
-  </div>
-</footer>
-</body>
-<section style="max-width:1100px;width:92%;margin:50px auto;color:white;font-family:Arial,sans-serif;">
-  <p style="color:#c7ff45;letter-spacing:2px;">FEATURED VIDEOS</p>
-  <h2 style="font-size:32px;margin:10px 0 25px;">Our Travel Adventures 🇱🇰</h2>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));gap:24px;">
-    <div style="background:#0c1b17;border:1px solid #245043;border-radius:16px;padding:12px;">
-      <iframe
-        src="https://www.youtube.com/embed/QiUTa15-gpk"
-        title="Dami Traveling video 1"
-        style="display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:10px;"
-        allowfullscreen>
-      </iframe>
-      <h3 style="padding:14px 4px;">Travel Adventure 01</h3>
-    </div>
-
-    <div style="background:#0c1b17;border:1px solid #245043;border-radius:16px;padding:12px;">
-      <iframe
-        src="https://www.youtube.com/embed/O4N68p5Ew6w?start=191"
-        title="Dami Traveling video 2"
-        style="display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:10px;"
-        allowfullscreen>
-      </iframe>
-      <h3 style="padding:14px 4px;">Travel Adventure 02</h3>
-    </div>
-  </div>
-</section>
-
+  </footer>
 
 </body>
 </html>
-
-<header>
-  <div class="container navbar">
-    <a class="logo" href="index.html">
-      DAMI <span>TRAVELING</span>
-    </a>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="videos.html">Videos</a>
-      <a href="destinations.html">Destinations</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-
