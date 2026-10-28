@@ -5,17 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#123c28">
-  <meta name="description" content="DAMI TRAVELING සමඟ ශ්‍රී ලංකාවේ ගම්මාන, කඳු, ගංගා, ඇළ දොළ සහ සුන්දර පරිසරය විඳින්න.">
+  <meta name="description" content="DAMI TRAVELING - Explore Sri Lanka's green mountains, rivers, waterfalls and beautiful villages.">
   <title>DAMI TRAVELING | Explore Sri Lanka</title>
 
   <style>
     :root {
       --green: #174b32;
-      --green-dark: #0b2419;
-      --green-light: #d8f0c8;
+      --dark: #0b2419;
+      --light: #eaf2e6;
       --gold: #e6c875;
-      --white: #ffffff;
-      --muted: #d4dfd5;
+      --white: #fff;
     }
 
     * { box-sizing: border-box; }
@@ -25,14 +24,14 @@
     body {
       margin: 0;
       font-family: Arial, "Noto Sans Sinhala", sans-serif;
-      background: #f5f7f1;
-      color: #203528;
+      background: #f7f8f3;
+      color: #233b2c;
       line-height: 1.7;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a { color: inherit; text-decoration: none; }
 
-    img { display: block; width: 100%; object-fit: cover; }
+    img { width: 100%; display: block; object-fit: cover; }
 
     .container {
       width: min(1120px, 92%);
@@ -42,51 +41,50 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: var(--green-dark);
-      color: white;
+      z-index: 20;
+      background: var(--dark);
+      color: var(--white);
       box-shadow: 0 3px 15px #0002;
     }
 
     .nav {
-      min-height: 72px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      align-items: center;
       flex-wrap: wrap;
-      padding: 12px 0;
+      gap: 15px;
+      padding: 14px 0;
     }
 
     .logo {
-      color: var(--gold);
-      font-size: 23px;
+      font-size: 22px;
       font-weight: 900;
+      color: var(--gold);
       letter-spacing: 1px;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 16px;
     }
 
     nav a:hover { color: var(--gold); }
 
     .hero {
-      min-height: 540px;
+      min-height: 570px;
       display: flex;
       align-items: center;
       color: white;
       background:
-        linear-gradient(90deg, #071b11eF, #071b1190 55%, #071b1130),
+        linear-gradient(90deg, #071b11ed, #071b1190 58%, #071b1130),
         url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=85")
         center/cover;
     }
 
     .hero-content {
-      padding: 80px 0;
-      max-width: 720px;
+      padding: 75px 0;
+      max-width: 760px;
     }
 
     .eyebrow {
@@ -98,54 +96,57 @@
     h1 {
       font-size: clamp(38px, 6vw, 68px);
       line-height: 1.15;
-      margin: 12px 0;
+      margin: 15px 0;
     }
 
     h1 span { color: var(--gold); }
 
     .hero p {
-      max-width: 610px;
       font-size: 18px;
+      max-width: 650px;
     }
 
     .button {
       display: inline-block;
-      padding: 11px 21px;
-      margin: 7px 8px 0 0;
-      border-radius: 28px;
+      margin: 7px 6px 0 0;
+      padding: 11px 20px;
+      border-radius: 30px;
       background: var(--gold);
-      color: #193323;
+      color: #173522;
       font-weight: bold;
+      transition: .2s;
     }
+
+    .button:hover { transform: translateY(-2px); }
 
     .button-outline {
-      border: 1px solid white;
       background: transparent;
       color: white;
+      border: 1px solid white;
     }
 
-    section { padding: 58px 0; }
+    section { padding: 60px 0; }
 
-    .section-heading {
+    .heading {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
-    .section-heading h2 {
+    .heading h2 {
       margin: 0 0 8px;
-      font-size: clamp(26px, 4vw, 36px);
       color: var(--green);
+      font-size: clamp(27px, 4vw, 36px);
     }
 
-    .section-heading p {
-      color: #65756a;
+    .heading p {
       margin: 0;
+      color: #66776a;
     }
 
     .intro {
-      text-align: center;
-      max-width: 800px;
+      max-width: 830px;
       margin: auto;
+      text-align: center;
     }
 
     .nature-grid,
@@ -153,42 +154,37 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
     .nature-card,
     .video-card,
     .photo-card {
-      background: white;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 5px 20px #183d2512;
+      background: white;
+      box-shadow: 0 5px 20px #173c2514;
     }
 
-    .nature-card img { height: 230px; }
+    .nature-card img { height: 235px; }
 
-    .nature-card .content,
-    .video-card .content {
-      padding: 18px;
-    }
+    .card-content { padding: 18px; }
 
-    .nature-card h3,
-    .video-card h3 {
+    .card-content h3 {
       margin: 0 0 7px;
       color: var(--green);
     }
 
-    .nature-card p,
-    .video-card p {
+    .card-content p {
       margin: 0;
-      color: #65756a;
+      color: #647469;
     }
 
-    .videos { background: #eaf0e6; }
+    .videos { background: var(--light); }
 
     .video-frame {
       aspect-ratio: 16 / 9;
-      background: #17231a;
+      background: #17251b;
     }
 
     .video-frame iframe {
@@ -209,34 +205,61 @@
       transition: transform .3s;
     }
 
-    .photo-card { overflow: hidden; }
-
     .photo-card:hover img { transform: scale(1.04); }
 
-    .subscribe {
-      text-align: center;
+    .social-section {
+      background: linear-gradient(135deg, #123c28, #2d7046);
       color: white;
-      background: linear-gradient(130deg, #123c28, #2e7046);
+      text-align: center;
     }
 
-    .subscribe h2 { font-size: 30px; }
+    .social-section h2 { font-size: 32px; }
+
+    .social-section p { color: #e2eee4; }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .social-buttons .button { margin: 0; }
+
+    .tiktok { background: #fff; color: #111; }
+    .facebook { background: #1877f2; color: white; }
+    .youtube { background: #e62117; color: white; }
 
     footer {
+      background: var(--dark);
+      color: white;
       padding: 28px 0;
       text-align: center;
-      background: #0b2419;
-      color: white;
     }
 
     footer p { margin: 5px 0; }
 
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 15px 0;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
     @media (max-width: 760px) {
       .nav { justify-content: center; }
       nav { justify-content: center; gap: 12px; }
-      .hero { min-height: 470px; }
+      .hero { min-height: 480px; }
       .nature-grid,
       .video-grid,
-      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 500px) {
@@ -245,6 +268,7 @@
       .gallery-grid { grid-template-columns: 1fr; }
       .hero-content { padding: 55px 0; }
       .hero p { font-size: 16px; }
+      .logo { font-size: 20px; }
     }
   </style>
 </head>
@@ -254,13 +278,14 @@
 <header>
   <div class="container nav">
     <a class="logo" href="index.html">🌿 DAMI TRAVELING</a>
-    <nav>
+    <nav aria-label="Main navigation">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#nature">Nature</a>
       <a href="#videos">Videos</a>
       <a href="gallery.html">Gallery</a>
       <a href="videos.html">All Videos</a>
+      <a href="#social">Social Media</a>
     </nav>
   </div>
 </header>
@@ -271,35 +296,35 @@
       <div class="eyebrow">EXPLORE THE BEAUTY OF SRI LANKA</div>
       <h1>Nature, Travel &amp;<br><span>Beautiful Memories</span></h1>
       <p>
-        ශ්‍රී ලංකාවේ සුන්දර ගම්මාන, කොළ පැහැති කඳු, ගලා බසින ගංගා,
-        ඇළ දොළ සහ සොබාදහමේ සුන්දරත්වය සමඟ අලුත් ගමන් අත්දැකීම්
-        විඳින්න DAMI TRAVELING සමඟ එකතු වෙන්න.
+        ශ්‍රී ලංකාවේ සුන්දර ගම්මාන, කොළ පැහැති කඳු, ගංගා,
+        ඇළ දොළ, දිය ඇලි සහ සොබාදහමේ සුන්දරත්වය සමඟ
+        අලුත් සංචාරක අත්දැකීම් විඳින්න.
       </p>
-      <a class="button" href="#videos">🎥 Watch Videos</a>
+      <a class="button" href="#videos">🎬 Watch Videos</a>
       <a class="button button-outline"
          href="https://www.youtube.com/@damitha-w6f"
-         target="_blank" rel="noopener">▶ YouTube Channel</a>
+         target="_blank" rel="noopener noreferrer">▶ YouTube Channel</a>
     </div>
   </section>
 
   <section id="about">
     <div class="container intro">
-      <div class="section-heading">
+      <div class="heading">
         <h2>ආයුබෝවන්! 🌿</h2>
         <p>Welcome to DAMI TRAVELING</p>
       </div>
       <p>
-        අපේ රටේ සුන්දරත්වය කැමරාවෙන් ඔබ වෙත ගෙන එන ගමනක්.
-        ගස්වැල්, කඳු, ගංගා, දිය ඇලි, ගම්මාන සහ අමතක නොවන
-        සංචාරක මතකයන් මෙතැනින් බලන්න.
+        අපේ රටේ ස්වභාවික සුන්දරත්වය ඔබ වෙත ගෙන එන සංචාරක ගමනක්.
+        ගස්වැල්, කඳු, ගංගා, ඇළ දොළ, ගම්මාන සහ අමතක නොවන
+        ගමන් මතකයන් අපේ වීඩියෝ සහ ඡායාරූප හරහා විඳින්න.
       </p>
     </div>
   </section>
 
-  <section id="nature" style="background:#eaf0e6;">
+  <section id="nature" style="background:#eaf2e6;">
     <div class="container">
-      <div class="section-heading">
-        <h2>සොබාදහමේ සුන්දරත්වය</h2>
+      <div class="heading">
+        <h2>🌱 සොබාදහමේ සුන්දරත්වය</h2>
         <p>ගස්වැල්, කඳු, ගංගා සහ ගම්මාන අතරින්</p>
       </div>
 
@@ -308,7 +333,7 @@
           <img
             src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=80"
             alt="හරිත වනාන්තරය" loading="lazy">
-          <div class="content">
+          <div class="card-content">
             <h3>🌳 හරිත වනාන්තර</h3>
             <p>ගස්වැල්වලින් පිරුණු නිස්කලංක පරිසරය.</p>
           </div>
@@ -318,17 +343,17 @@
           <img
             src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=900&q=80"
             alt="ගලා බසින දිය ඇල්ල" loading="lazy">
-          <div class="content">
+          <div class="card-content">
             <h3>💧 ගංගා සහ දිය ඇලි</h3>
-            <p>ජලයේ සිසිලසත් සොබාදහමේ මිහිරියාවත්.</p>
+            <p>ජලයේ සිසිලස සහ සොබාදහමේ මිහිරියාව.</p>
           </div>
         </article>
 
         <article class="nature-card">
           <img
             src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80"
-            alt="හරිත කඳු පන්තිය" loading="lazy">
-          <div class="content">
+            alt="කඳු පන්තිය" loading="lazy">
+          <div class="card-content">
             <h3>⛰️ කඳු සහ නිම්න</h3>
             <p>කඳුකරයේ සුන්දර දසුන් සහ අලුත් ගමන්.</p>
           </div>
@@ -339,8 +364,8 @@
 
   <section class="videos" id="videos">
     <div class="container">
-      <div class="section-heading">
-        <h2>🎬 Latest Travel Videos</h2>
+      <div class="heading">
+        <h2>🎬 Travel Videos</h2>
         <p>DAMI TRAVELING YouTube වීඩියෝ</p>
       </div>
 
@@ -355,11 +380,11 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
-          <div class="content">
+          <div class="card-content">
             <h3>Travel Vlog 01</h3>
             <p>අපේ සංචාරක අත්දැකීමක්.</p>
             <a class="watch" href="https://www.youtube.com/watch?v=O4N68p5Ew6w"
-               target="_blank" rel="noopener">YouTube එකෙන් බලන්න ↗</a>
+               target="_blank" rel="noopener noreferrer">YouTube එකෙන් බලන්න ↗</a>
           </div>
         </article>
 
@@ -373,11 +398,11 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
-          <div class="content">
+          <div class="card-content">
             <h3>Travel Vlog 02</h3>
             <p>තවත් සුන්දර ගමන් මතකයක්.</p>
             <a class="watch" href="https://www.youtube.com/watch?v=OQAoxW6RLtM"
-               target="_blank" rel="noopener">YouTube එකෙන් බලන්න ↗</a>
+               target="_blank" rel="noopener noreferrer">YouTube එකෙන් බලන්න ↗</a>
           </div>
         </article>
 
@@ -391,60 +416,52 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen></iframe>
           </div>
-          <div class="content">
+          <div class="card-content">
             <h3>Travel Vlog 03</h3>
             <p>අපේ රටේ සුන්දරත්වය විඳිමු.</p>
             <a class="watch" href="https://www.youtube.com/watch?v=5FUmSDiw4_c"
-               target="_blank" rel="noopener">YouTube එකෙන් බලන්න ↗</a>
+               target="_blank" rel="noopener noreferrer">YouTube එකෙන් බලන්න ↗</a>
           </div>
         </article>
       </div>
 
       <div style="text-align:center;margin-top:30px;">
         <a class="button" href="videos.html">සියලුම වීඩියෝ බලන්න</a>
-        <a class="button" href="https://www.youtube.com/@damitha-w6f"
-           target="_blank" rel="noopener">Subscribe කරන්න ▶</a>
       </div>
     </div>
   </section>
 
   <section id="gallery">
     <div class="container">
-      <div class="section-heading">
+      <div class="heading">
         <h2>📸 Travel Gallery</h2>
         <p>ඔයාගේ සංචාරක ඡායාරූප</p>
       </div>
 
       <div class="gallery-grid">
         <a class="photo-card" href="gallery.html">
-          <img
-            src="WhatsApp%20Image%202026-10-24%20at%207.42.54%20AM.jpeg"
-            alt="DAMI TRAVELING photo 1" loading="lazy">
+          <img src="WhatsApp%20Image%202026-10-24%20at%207.42.54%20AM.jpeg"
+               alt="Travel photo 1" loading="lazy">
         </a>
         <a class="photo-card" href="gallery.html">
-          <img
-            src="WhatsApp%20Image%202026-10-24%20at%207.42.54%20AM%20(1).jpeg"
-            alt="DAMI TRAVELING photo 2" loading="lazy">
+          <img src="WhatsApp%20Image%202026-10-24%20at%207.42.54%20AM%20(1).jpeg"
+               alt="Travel photo 2" loading="lazy">
         </a>
         <a class="photo-card" href="gallery.html">
-          <img
-            src="WhatsApp%20Image%202026-10-24%20at%207.42.54%20AM%20(2).jpeg"
-            alt="DAMI TRAVELING photo 3" loading="lazy">
+          <img src="WhatsApp%20Image%202026-10-24%20at%207.42.54%20AM%20(2).jpeg"
+               alt="Travel photo 3" loading="lazy">
         </a>
         <a class="photo-card" href="gallery.html">
-          <img
-            src="WhatsApp%20Image%202026-10-24%20at%207.43.20%20AM.jpeg"
-            alt="DAMI TRAVELING photo 4" loading="lazy">
+          <img src="WhatsApp%20Image%202026-10-24%20at%207.43.20%20AM.jpeg"
+               alt="Travel photo 4" loading="lazy">
         </a>
         <a class="photo-card" href="gallery.html">
-          <img
-            src="WhatsApp%20Image%202026-10-24%20at%207.43.20%20AM%20(1).jpeg"
-            alt="DAMI TRAVELING photo 5" loading="lazy">
+          <img src="WhatsApp%20Image%202026-10-24%20at%207.43.20%20AM%20(1).jpeg"
+               alt="Travel photo 5" loading="lazy">
         </a>
         <a class="photo-card" href="gallery.html">
-          <img
-            src="WhatsApp%20Image%202026-10-24%20at%207.43.20%20AM%20(2).jpeg"
-            alt="DAMI TRAVELING photo 6" loading="lazy">
+          <img src="WhatsApp%20Image%202026-10-24%20at%207.43.20%20AM%20(2).jpeg"
+               alt="Travel photo 6" loading="lazy">
         </a>
       </div>
 
@@ -454,20 +471,48 @@
     </div>
   </section>
 
-  <section class="subscribe">
+  <section class="social-section" id="social">
     <div class="container">
-      <h2>🌿 අපේ සංචාරක ගමනට එකතු වෙන්න</h2>
-      <p>අලුත් Travel Vlogs සහ ලස්සන පරිසර දසුන් බලන්න YouTube Channel එක Subscribe කරන්න.</p>
-      <a class="button"
-         href="https://www.youtube.com/@damitha-w6f"
-         target="_blank" rel="noopener">▶ Subscribe to DAMI TRAVELING</a>
+      <h2>🌿 අපිත් එක්ක එකතු වෙන්න</h2>
+      <p>අලුත් Travel Videos, Photos සහ සංචාරක තොරතුරු සඳහා අපිව Follow කරන්න.</p>
+
+      <div class="social-buttons">
+        <a class="button tiktok"
+           href="https://www.tiktok.com/@dami695572661?_r=1&amp;_t=ZS-9Aw3FZ61yGA"
+           target="_blank" rel="noopener noreferrer">
+          ♪ Follow on TikTok
+        </a>
+
+        <a class="button facebook"
+           href="https://www.facebook.com/share/19rTm54ZBU/"
+           target="_blank" rel="noopener noreferrer">
+          f Follow on Facebook
+        </a>
+
+        <a class="button youtube"
+           href="https://www.youtube.com/@damitha-w6f"
+           target="_blank" rel="noopener noreferrer">
+          ▶ Subscribe on YouTube
+        </a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="container">
-    <p><strong>🌿 DAMI TRAVELING</strong></p>
+    <a class="logo" href="#home">🌿 DAMI TRAVELING</a>
+
+    <div class="footer-links">
+      <a href="https://www.tiktok.com/@dami695572661?_r=1&amp;_t=ZS-9Aw3FZ61yGA"
+         target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.facebook.com/share/19rTm54ZBU/"
+         target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.youtube.com/@damitha-w6f"
+         target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="gallery.html">Gallery</a>
+    </div>
+
     <p>ශ්‍රී ලංකාවේ සුන්දරත්වය ඔබ වෙත ගෙන එන ගමනක්.</p>
     <p>© <span id="year"></span> DAMI TRAVELING. All rights reserved.</p>
   </div>
@@ -476,7 +521,7 @@
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Photo file එකක් නොපෙන්වුවොත් ඒ photo card එක සඟවයි.
+  // Photo file එකක් සොයාගත නොහැකි නම් එම photo card එක සඟවයි.
   document.querySelectorAll(".photo-card img").forEach(function (img) {
     img.addEventListener("error", function () {
       img.closest(".photo-card").style.display = "none";
