@@ -2,166 +2,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Photo Gallery | DAMI TRAVELING</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#07110e;--panel:#102019;--green:#b6f36a;--white:#f5f8f4;--muted:#aab8ae}
-body{font-family:Arial,sans-serif;background:var(--bg);color:var(--white);line-height:1.6}
-a{color:inherit;text-decoration:none}
-.container{width:min(1120px,92%);margin:auto}
-header{background:#09140f;border-bottom:1px solid #29392d;position:sticky;top:0;z-index:5}
-.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:14px 0}
-.logo{font-size:22px;font-weight:900;letter-spacing:1px}
-.logo span{color:var(--green)}
-nav{display:flex;gap:16px;flex-wrap:wrap}
-nav a{font-size:14px;color:#e1e9e2}
-nav a:hover,nav a.active{color:var(--green)}
-.hero{padding:70px 0 45px;background:linear-gradient(120deg,#193524,#07110e)}
-.tag{color:var(--green);font-size:12px;font-weight:bold;letter-spacing:3px;text-transform:uppercase}
-h1{font-size:clamp(36px,6vw,60px);line-height:1.15;margin:12px 0}
-.hero p{color:var(--muted);max-width:700px}
-main{padding:35px 0 75px}
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
-.filters button{background:var(--panel);border:1px solid #344839;color:white;padding:10px 17px;border-radius:7px;cursor:pointer}
-.filters button.active,.filters button:hover{background:var(--green);color:#102015;border-color:var(--green)}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-.photo{position:relative;overflow:hidden;border-radius:12px;border:1px solid #293b2e;background:var(--panel);cursor:pointer;min-height:190px}
-.photo img{width:100%;height:245px;object-fit:cover;display:block;transition:transform .3s}
-.photo:hover img{transform:scale(1.06)}
-.caption{position:absolute;bottom:0;left:0;right:0;padding:35px 15px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-weight:bold}
-.photo[hidden]{display:none}
-.note{color:var(--muted);margin-bottom:25px}
-footer{border-top:1px solid #29392d;padding:25px 0;color:var(--muted);font-size:13px}
-.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:20;display:none;align-items:center;justify-content:center;padding:25px}
-.lightbox.open{display:flex}
-.lightbox img{max-width:95%;max-height:82vh;object-fit:contain}
-.close{position:absolute;right:25px;top:15px;font-size:36px;color:white;background:none;border:0;cursor:pointer}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:550px){.navbar{justify-content:center}nav{justify-content:center;gap:12px}.grid{grid-template-columns:1fr}.photo img{height:260px}.hero{padding:50px 0 35px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | DAMI TRAVELING</title>
+  <meta name="description" content="Travel photos and beautiful memories from DAMI TRAVELING.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #07110e;
+      color: #f5f8f4;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #102019;
+      border-bottom: 1px solid #304737;
+      padding: 20px 5%;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: #b6f36a;
+      font-size: 23px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #b6f36a;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 35px;
+      background: linear-gradient(180deg, #102019, #07110e);
+    }
+
+    .hero small {
+      color: #b6f36a;
+      letter-spacing: 4px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(35px, 6vw, 58px);
+      margin: 15px 0;
+    }
+
+    h1 span {
+      color: #b6f36a;
+    }
+
+    .hero p {
+      color: #b9c7bd;
+      line-height: 1.8;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+      padding: 25px 0 65px;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .toolbar h2 {
+      font-size: 25px;
+    }
+
+    #status {
+      color: #b6f36a;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 7px;
+      background: #b6f36a;
+      color: #102019;
+      font-weight: bold;
+      padding: 12px 18px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: white;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .photo {
+      background: #102019;
+      border: 1px solid #2c4432;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .photo:hover {
+      transform: translateY(-5px);
+      border-color: #b6f36a;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 260px;
+      display: block;
+      object-fit: cover;
+      cursor: pointer;
+      background: #1b3022;
+    }
+
+    .caption {
+      padding: 14px;
+      overflow-wrap: anywhere;
+      color: #e5eee6;
+      font-size: 14px;
+    }
+
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 45px 20px;
+      background: #102019;
+      border-radius: 12px;
+      color: #c2cec4;
+      line-height: 1.9;
+    }
+
+    footer {
+      background: #102019;
+      border-top: 1px solid #304737;
+      text-align: center;
+      padding: 25px 15px;
+      color: #b9c7bd;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    footer a {
+      color: #b6f36a;
+      text-decoration: none;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 100;
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 95%;
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 22px;
+      color: white;
+      font-size: 38px;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+    }
+
+    @media (max-width: 800px) {
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .photo img {
+        height: 220px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .nav {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 13px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .photo img {
+        height: 260px;
+      }
+
+      .toolbar {
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<div class="container navbar">
-<a class="logo" href="index.html">DAMI <span>TRAVELING</span></a>
-<nav>
-<a href="index.html">Home</a>
-<a href="videos.html">Videos</a>
-<a href="destinations.html">Destinations</a>
-<a class="active" href="gallery.html">Gallery</a>
-<a href="index.html#about">About</a>
-<a href="index.html#contact">Contact</a>
-</nav>
-</div>
-</header>
 
-<section class="hero">
-<div class="container">
-<div class="tag">Memories from the journey</div>
-<h1>Travel <span style="color:#b6f36a">Gallery</span></h1>
-<p>ශ්‍රී ලංකාවේ සුන්දරත්වය, කඳු, දිය ඇලි, වෙරළ සහ සංචාරක මතකයන් එකම තැනකින් බලන්න.</p>
-</div>
-</section>
+  <header>
+    <div class="nav">
+      <a class="logo" href="index.html">DAMI TRAVELING</a>
 
-<main>
-<div class="container">
-<p class="note">පින්තූරයක් click කළාම ඒක ලොකුවට බලන්න පුළුවන්. පහළ buttons වලින් photo වර්ග තෝරන්න.</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="videos.html">Videos</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="index.html#about">About</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="filters">
-<button class="active" data-filter="all">All Photos</button>
-<button data-filter="nature">Nature</button>
-<button data-filter="mountains">Mountains</button>
-<button data-filter="beach">Beaches</button>
-</div>
+  <section class="hero">
+    <small>MY TRAVEL MEMORIES</small>
+    <h1>Photo <span>Gallery</span></h1>
+    <p>ගමයි, කඳුයි, ඇළ දොළයි — සුන්දර මතක එකතුවක් ❤️</p>
+  </section>
 
-<div class="grid" id="gallery">
-<div class="photo" data-category="nature" tabindex="0" role="button" aria-label="View green forest photo">
-<img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=900&q=85" alt="Green natural landscape" loading="lazy">
-<div class="caption">Nature & Wildlife</div>
-</div>
-<div class="photo" data-category="mountains" tabindex="0" role="button" aria-label="View mountain photo">
-<img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Mountain peaks" loading="lazy">
-<div class="caption">Mountain Adventures</div>
-</div>
-<div class="photo" data-category="beach" tabindex="0" role="button" aria-label="View beach photo">
-<img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=85" alt="Ocean and beach" loading="lazy">
-<div class="caption">Beautiful Beaches</div>
-</div>
-<div class="photo" data-category="nature" tabindex="0" role="button" aria-label="View waterfall photo">
-<img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=900&q=85" alt="Waterfall in a green forest" loading="lazy">
-<div class="caption">Waterfall Wonders</div>
-</div>
-<div class="photo" data-category="mountains" tabindex="0" role="button" aria-label="View countryside photo">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85" alt="Countryside landscape" loading="lazy">
-<div class="caption">Green Countryside</div>
-</div>
-<div class="photo" data-category="beach" tabindex="0" role="button" aria-label="View sea photo">
-<img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=85" alt="Tropical beach" loading="lazy">
-<div class="caption">Ocean Memories</div>
-</div>
-</div>
-</div>
-</main>
+  <main class="container">
+    <div class="toolbar">
+      <div>
+        <h2>My Photos 📸</h2>
+        <p id="status">Photos සොයමින් පවතී...</p>
+      </div>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Large photo viewer">
-<button class="close" id="close" aria-label="Close photo viewer">&times;</button>
-<img id="largePhoto" src="" alt="Enlarged travel photo">
-</div>
+      <button class="btn" id="reload" type="button">
+        Reload Photos ↻
+      </button>
+    </div>
 
-<footer>
-<div class="container footer">
-<span>© 2026 DAMI TRAVELING</span>
-<span>Made with ❤️ for travel lovers</span>
-</div>
-</footer>
+    <div class="gallery" id="gallery">
+      <div class="empty">ඔයාගේ photos සොයමින් පවතී...</div>
+    </div>
+  </main>
 
-<script>
-const buttons=document.querySelectorAll('.filters button');
-const photos=document.querySelectorAll('.photo');
-const lightbox=document.getElementById('lightbox');
-const largePhoto=document.getElementById('largePhoto');
+  <div class="lightbox" id="lightbox">
+    <button class="close" id="close" aria-label="Close">&times;</button>
+    <img id="largePhoto" src="" alt="Large travel photo">
+  </div>
 
-buttons.forEach(button=>{
-button.addEventListener('click',()=>{
-buttons.forEach(b=>b.classList.toggle('active',b===button));
-const filter=button.dataset.filter;
-photos.forEach(photo=>{
-photo.hidden=filter!=='all'&&photo.dataset.category!==filter;
-});
-});
-});
+  <footer>
+    <p>© 2026 DAMI TRAVELING</p>
+    <p>Made with ❤️ for travel lovers</p>
+    <a href="https://www.youtube.com/@damitha-w6f"
+       target="_blank" rel="noopener">Visit My YouTube Channel</a>
+  </footer>
 
-function openPhoto(photo){
-const img=photo.querySelector('img');
-largePhoto.src=img.src;
-largePhoto.alt=img.alt;
-lightbox.classList.add('open');
-document.getElementById('close').focus();
-}
-photos.forEach(photo=>{
-photo.addEventListener('click',()=>openPhoto(photo));
-photo.addEventListener('keydown',event=>{
-if(event.key==='Enter'||event.key===' '){
-event.preventDefault();
-openPhoto(photo);
-}
-});
-});
+  <script>
+    const username = "imankamaduranga999-afk";
+    const repo = "imankamaduranga999-afk.github.io";
 
-function closePhoto(){
-lightbox.classList.remove('open');
-largePhoto.src='';
-}
-document.getElementById('close').addEventListener('click',closePhoto);
-lightbox.addEventListener('click',event=>{
-if(event.target===lightbox)closePhoto();
-});
-document.addEventListener('keydown',event=>{
-if(event.key==='Escape')closePhoto();
-});
-</script>
+    const gallery = document.getElementById("gallery");
+    const statusText = document.getElementById("status");
+    const reloadButton = document.getElementById("reload");
+    const lightbox = document.getElementById("lightbox");
+    const largePhoto = document.getElementById("largePhoto");
+
+    function showMessage(message) {
+      gallery.innerHTML = "";
+      const box = document.createElement("div");
+      box.className = "empty";
+      box.textContent = message;
+      gallery.appendChild(box);
+    }
+
+    function openPhoto(url, alt) {
+      largePhoto.src = url;
+      largePhoto.alt = alt;
+      lightbox.classList.add("show");
+    }
+
+    document.getElementById("close").addEventListener("click", () => {
+      lightbox.classList.remove("show");
+      largePhoto.src = "";
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        lightbox.classList.remove("show");
+        largePhoto.src = "";
+      }
+    });
+
+    async function loadPhotos() {
+      statusText.textContent = "Photos සොයමින් පවතී...";
+      showMessage("ටිකක් ඉන්න මචං... photos load වෙනවා.");
+
+      try {
+        const response = await fetch(
+          `https://api.github.com/repos/${username}/${repo}/contents/`,
+          { headers: { "Accept": "application/vnd.github+json" } }
+        );
+
+        if (!response.ok) {
+          throw new Error("GitHub file list ලබාගන්න බැරි වුණා.");
+        }
+
+        const files = await response.json();
+
+        const imageFiles = files.filter(file =>
+          file.type === "file" &&
+          /\.(jpe?g|png|webp|gif|avif)$/i.test(file.name)
+        );
+
+        if (imageFiles.length === 0) {
+          statusText.textContent = "Photos හමු වුණේ නැහැ.";
+          showMessage(
+            "Repository එකේ ප්‍රධාන folder එකේ photos හමු වුණේ නැහැ. " +
+            "Photos වෙනත් folder එකක තිබෙනවා නම් code එකට ඒ folder එකත් එකතු කළ යුතුයි."
+          );
+          return;
+        }
+
+        gallery.innerHTML = "";
+
+        imageFiles.forEach((file, index) => {
+          const card = document.createElement("article");
+          card.className = "photo";
+
+          const img = document.createElement("img");
+          img.src = file.download_url;
+          img.alt = file.name;
+          img.loading = "lazy";
+
+          img.addEventListener("click", () => {
+            openPhoto(file.download_url, file.name);
+          });
+
+          const caption = document.createElement("div");
+          caption.className = "caption";
+          caption.textContent = file.name;
+
+          img.addEventListener("error", () => {
+            card.remove();
+          });
+
+          card.appendChild(img);
+          card.appendChild(caption);
+          gallery.appendChild(card);
+        });
+
+        statusText.textContent =
+          imageFiles.length + " photos හමු වුණා ❤️";
+
+      } catch (error) {
+        statusText.textContent = "Photos load කිරීමට නොහැකි වුණා.";
+        showMessage(
+          "මචං, GitHub එකෙන් photos ලැයිස්තුව ගන්න බැරි වුණා. " +
+          "Internet connection එක පරීක්ෂා කර Reload Photos ඔබන්න. " +
+          "තවමත් වැඩ නැත්නම් repository එකේ photos තියෙන folder එක පරීක්ෂා කරන්න."
+        );
+      }
+    }
+
+    reloadButton.addEventListener("click", loadPhotos);
+
+    loadPhotos();
+  </script>
+
 </body>
 </html>
